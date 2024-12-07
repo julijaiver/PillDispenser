@@ -69,7 +69,7 @@ pico-sdk/src/rp2_common/tinyusb/CMakeFiles/tinyusb_pico_pio_usb_usb_rx_pio_h: pi
 
 pico-sdk/src/rp2_common/tinyusb/usb_rx.pio.h: C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/lib/tinyusb/hw/mcu/raspberry_pi/Pico-PIO-USB/src/usb_rx.pio
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating usb_rx.pio.h"
-	cd /d C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\tinyusb && C:\Users\Lenovo\Desktop\Metropolia\bin\PicoSDKv1.5.0\pico-sdk-tools\pioasm.exe -o c-sdk C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/lib/tinyusb/hw/mcu/raspberry_pi/Pico-PIO-USB/src/usb_rx.pio C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/tinyusb/usb_rx.pio.h
+	cd /d C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\tinyusb && ..\..\..\..\pioasm-install\pioasm\pioasm.exe -o c-sdk -v 0 C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/lib/tinyusb/hw/mcu/raspberry_pi/Pico-PIO-USB/src/usb_rx.pio C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/tinyusb/usb_rx.pio.h
 
 tinyusb_pico_pio_usb_usb_rx_pio_h: pico-sdk/src/rp2_common/tinyusb/CMakeFiles/tinyusb_pico_pio_usb_usb_rx_pio_h
 tinyusb_pico_pio_usb_usb_rx_pio_h: pico-sdk/src/rp2_common/tinyusb/usb_rx.pio.h
