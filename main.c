@@ -18,7 +18,6 @@ void initialize_button (int button);
 void initialize_led(int led);
 void blink_led(int led, uint delay);
 void led_bright(int led);
-void gpio_handler(uint gpio, uint32_t event);
 bool detect_pill();
 bool check_pill_dispensed(void);
 void led_off(int led);
@@ -56,6 +55,35 @@ typedef enum {
     LED_ON = 4,
 } Event;
 
+static queue_t events;
+static uint last_event_time = 0;
+
+//function for interrupts and events
+static void gpio_handler(uint gpio, uint32_t event) {
+    uint64_t current_time = time_us_64();
+    uint64_t elapsed_time = current_time - last_event_time;
+
+    if (elapsed_time > 10000) {  //debounce
+        last_event_time = current_time;
+
+        if (gpio == SW_1) {
+            Event sw1_pressed = SW1_PRESSED;
+            queue_try_add(&events, &sw1_pressed);
+        } else if (gpio == SW_2) {
+            Event sw2_pressed = SW2_PRESSED;
+            queue_try_add(&events, &sw2_pressed);
+        }
+    }
+    if (elapsed_time > 20000) {
+        //debounce for pill dropping
+        last_event_time = current_time;
+        if (gpio == PIEZO_SENSOR) {
+            Event pill_detected = PILL_DISPENSED;
+            queue_try_add(&events, &pill_detected);
+        }
+    }
+}
+
 //set driving sequence for half stepping
 static const uint half_stepping[TOTAL_STEP][COILS] = {
     {HIGH, LOW, LOW, LOW},
@@ -69,9 +97,6 @@ static const uint half_stepping[TOTAL_STEP][COILS] = {
     };
 
 static int steps_per_revolution = 0;
-
-static queue_t events;
-static uint last_event_time = 0;
 static bool reverse = false;
 
 int main() {
@@ -324,33 +349,6 @@ void blink_led(int led, uint delay) {
 void led_bright(int led) {
     gpio_put(led, true);
 }
-
-//function for interrupts and events
-void gpio_handler(uint gpio, uint32_t event) {
-    uint64_t current_time = time_us_64();
-    uint64_t elapsed_time = current_time - last_event_time;
-
-    if (elapsed_time > 10000) {  //debounce
-        last_event_time = current_time;
-
-        if (gpio == SW_1) {
-            Event sw1_pressed = SW1_PRESSED;
-            queue_try_add(&events, &sw1_pressed);
-        } else if (gpio == SW_2) {
-            Event sw2_pressed = SW2_PRESSED;
-            queue_try_add(&events, &sw2_pressed);
-        }
-    }
-    if (elapsed_time > 20000) {
-        //debounce for pill dropping
-        last_event_time = current_time;
-        if (gpio == PIEZO_SENSOR) {
-            Event pill_detected = PILL_DISPENSED;
-            queue_try_add(&events, &pill_detected);
-        }
-    }
-}
-
 
 //function for detecting the pill dropping
 bool detect_pill() {
