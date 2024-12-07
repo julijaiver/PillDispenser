@@ -4,6 +4,9 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include "pico/util/queue.h"
+#include "pico/time.h"
+
 
 void initialize_controller(uint controller);
 void rotate_one_compartment();
@@ -12,8 +15,13 @@ void perform_calib();
 int check_pressed(int button);
 void initialize_button (int button);
 void initialize_led(int led);
-void blink_led(int led);
+void blink_led(int led, uint delay);
 void led_bright(int led);
+void gpio_handler(uint gpio, uint32_t event);
+bool detect_pill();
+bool check_pill_dispensed(void);
+void led_off(int led);
+void recovery_calib(int current_compartment, bool dispensed, int compartment_steps);
 
 #define HIGH 1
 #define LOW 0
@@ -30,9 +38,22 @@ void led_bright(int led);
 #define EQUIP_INACCURACY 130
 #define DELAY 50
 #define SW_1 8
+#define SW_2 7
 #define LED 22
 #define BLINK_WAIT 500
 #define DAYS 7
+#define PIEZO_SENSOR 27
+#define MAX_QUEUE 100
+#define FALL_TIME 85 //calculated what is the maximum time needed in theory for a pill to drop. t= sqrt((2*0.035)/9.8) = 0.085 s.
+#define EQUIP_INACCURACY_REVERSE 207
+
+typedef enum {
+    INITIAL_STATE = 0,
+    SW1_PRESSED = 1,
+    SW2_PRESSED = 2,
+    PILL_DISPENSED = 3,
+    LED_ON = 4,
+} Event;
 
 //set driving sequence for half stepping
 static const uint half_stepping[TOTAL_STEP][COILS] = {
@@ -48,6 +69,10 @@ static const uint half_stepping[TOTAL_STEP][COILS] = {
 
 static int steps_per_revolution = 0;
 
+static queue_t events;
+static uint last_event_time = 0;
+static bool reverse = false;
+
 int main() {
     // Initialize motor controllers and opto fork
     initialize_controller(IN1);
@@ -61,23 +86,77 @@ int main() {
 
     //Initialize button and LED
     initialize_button(SW_1);
+    initialize_button(SW_2);
+    initialize_button(PIEZO_SENSOR);
     initialize_led(LED);
 
     // Initialize chosen serial port
     stdio_init_all();
+    //Initialize queue
+    queue_init(&events, sizeof(Event), MAX_QUEUE);
+
+    //enable irq
+    gpio_set_irq_enabled_with_callback(PIEZO_SENSOR, GPIO_IRQ_EDGE_FALL, true, &gpio_handler);
+    gpio_set_irq_enabled(SW_1, GPIO_IRQ_EDGE_FALL, true);
+    gpio_set_irq_enabled(SW_2, GPIO_IRQ_EDGE_FALL, true);
+
+    Event current_event = INITIAL_STATE;
+    uint state = 0;
+
 
     //Main menu
     while(true) {
-        while(!(check_pressed(SW_1))) {
-            blink_led(LED);
-        }
-        perform_calib();
-        led_bright(LED);
-        while(!(check_pressed(SW_1))) {
-        }
-        for(int i = 0; i < DAYS; i++) {
-            sleep_ms(3000); //used 3s for testing. Should be 30s
-            rotate_one_compartment();
+
+        switch (state) {
+            case INITIAL_STATE:
+                blink_led(LED, BLINK_WAIT);
+                break;
+            case SW1_PRESSED:
+                printf("SW1_PRESSED\n");
+                perform_calib();
+                state = LED_ON;
+            break;
+
+            case LED_ON:
+                led_bright(LED);
+            break;
+
+            case SW2_PRESSED:
+                //make led off to see the blinks properly
+                led_off(LED);
+                printf("SW2_PRESSED\n");
+                for (int i = 0; i < DAYS; i++) {
+                    rotate_one_compartment();
+                    if (detect_pill()) {
+                        printf("Pill detected for day %d\n", i + 1);
+                    } else {
+                        //led blinks when no pill detected
+                        for (int i = 0; i < 5; ++i) {
+                            blink_led(LED, 100);
+                        }
+                        printf("Pill NOT detected for day %d\n", i + 1);
+                    }
+
+                    sleep_ms(3000);
+                }
+                state = INITIAL_STATE;
+                break;
+            }
+
+        while (queue_try_remove(&events, &current_event)) {
+            switch(current_event) {
+                case SW1_PRESSED:
+                    state = SW1_PRESSED;
+                break;
+                case SW2_PRESSED:
+                    if (state == LED_ON) {
+                        state = SW2_PRESSED;
+                    }
+                break;
+                default:
+                    break;
+            }
+
         }
     }
     return 0;
@@ -91,9 +170,17 @@ void initialize_controller(uint controller) {
 
 //function that controls the rotation of the motor and return current step
 void rotate_one_compartment() {
+    //record the current days(compartment)
+    static int current_day = 0;
+    current_day = (current_day % DAYS)+1;
+
+    //record the current position (range 0-511)
+    static int current_position = 0;
+
     //driving the motor with half stepping and run motor number times 1/8 of a revolution
     int number = steps_per_revolution / TOTAL_STEP;
     for (int i = 0; i< number; ++i) {
+        current_position = i;
         move_one_step();
     }
 }
@@ -101,8 +188,16 @@ void rotate_one_compartment() {
 //function that moves one step
 void move_one_step(void) {
     static int current_step = 0;
-    //update the current step. If current step is 7, then set it to 0. Otherwise, increment by 1.
-    current_step = (current_step + 1) % TOTAL_STEP;
+
+    //Update the current step, offers both clockwise and anticlockwise rotation options
+    if(reverse) {
+        //Anticlockwise rotation.
+        current_step = (current_step - 1 + TOTAL_STEP) % TOTAL_STEP;
+    }
+    else {
+        //Clockwise rotation. If current step is 7, then set it to 0. Otherwise, increment by 1.
+        current_step = (current_step + 1) % TOTAL_STEP;
+    }
 
     gpio_put(IN1,half_stepping[current_step][0]);
     gpio_put(IN2,half_stepping[current_step][1]);
@@ -183,14 +278,111 @@ void initialize_led(int led) {
 }
 
 //function that blinks led
-void blink_led(int led) {
+void blink_led(int led, uint delay) {
     gpio_put(led, true);
-    sleep_ms(BLINK_WAIT);
+    sleep_ms(delay);
     gpio_put(led, false);
-    sleep_ms(BLINK_WAIT);
+    sleep_ms(delay);
 }
 
 //function that makes led always on
 void led_bright(int led) {
     gpio_put(led, true);
+}
+
+//function for interrupts and events
+void gpio_handler(uint gpio, uint32_t event) {
+    uint64_t current_time = time_us_64();
+    uint64_t elapsed_time = current_time - last_event_time;
+
+    if (elapsed_time > 10000) {  //debounce
+        last_event_time = current_time;
+
+        if (gpio == SW_1) {
+            Event sw1_pressed = SW1_PRESSED;
+            queue_try_add(&events, &sw1_pressed);
+        } else if (gpio == SW_2) {
+            Event sw2_pressed = SW2_PRESSED;
+            queue_try_add(&events, &sw2_pressed);
+        }
+    }
+    if (elapsed_time > 20000) {
+        //debounce for pill dropping
+        last_event_time = current_time;
+        if (gpio == PIEZO_SENSOR) {
+            Event pill_detected = PILL_DISPENSED;
+            queue_try_add(&events, &pill_detected);
+        }
+    }
+}
+
+
+//function for detecting the pill dropping
+bool detect_pill() {
+    const uint pill_drop_timeout = FALL_TIME;
+    uint elapsed_time = 0;
+    bool detected = false;
+
+    while (elapsed_time < pill_drop_timeout) {
+        const uint check_interval = 3;
+        if(check_pill_dispensed()) {
+            detected = true;
+        }
+        //check interval
+        sleep_ms(check_interval);
+        elapsed_time += check_interval;
+    }
+
+    return detected;
+}
+
+bool check_pill_dispensed(void) {
+    Event current_event;
+    while (queue_try_remove(&events, &current_event)) {
+        if (current_event == PILL_DISPENSED) {
+            return true;
+        }
+    }
+    return false;
+}
+
+//fucntion that turns off led
+void led_off(int led) {
+    gpio_put(led, false);
+}
+
+//NOT YET INCLUDED IN THE MAIN PROGRAM! NEED EEPROM SAVING STATUS TO PROCEED.
+void recovery_calib(int current_compartment, bool dispensed, int compartment_steps) {
+    bool start = false;
+    reverse = true;
+    int previous_value = 1;
+    int current_value = 1;
+
+    //found the calibrated part
+    while(!start) {
+        move_one_step();
+        previous_value = current_value;
+        current_value = gpio_get(OPTO_FORK);
+        //detect the rising edge
+        if(current_value && !previous_value) {
+            start = true;
+        }
+    }
+
+    reverse = false;
+
+    //Take the equipment inaccuracy into account and move the compartment exactly in the middle
+    for(int i= 0; i < EQUIP_INACCURACY_REVERSE; ++i) {
+        move_one_step();
+    }
+
+    //wait for 2s
+    sleep_ms(2000);
+
+    if(dispensed) {
+        ++current_compartment;
+    }
+    for(int i = 0; i < current_compartment * compartment_steps; ++i) {
+        move_one_step();
+    }
 }
