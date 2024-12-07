@@ -11,6 +11,7 @@
 void initialize_controller(uint controller);
 void rotate_one_compartment();
 void move_one_step(void);
+bool check_for_edge(bool rising_edge);
 void perform_calib();
 int check_pressed(int button);
 void initialize_button (int button);
@@ -102,7 +103,7 @@ int main() {
 
     Event current_event = INITIAL_STATE;
     uint state = 0;
-
+    bool calibrated = false;
 
     //Main menu
     while(true) {
@@ -113,7 +114,14 @@ int main() {
                 break;
             case SW1_PRESSED:
                 printf("SW1_PRESSED\n");
-                perform_calib();
+                if(!calibrated) {
+                    perform_calib();
+                    printf("Device calibrated.\n");
+                    calibrated = true;
+                }
+                else {
+                    printf("Calibration done already for this round.\n");
+                }
                 state = LED_ON;
             break;
 
@@ -137,9 +145,15 @@ int main() {
                         printf("Pill NOT detected for day %d\n", i + 1);
                     }
 
+                    //THIS PIECE OF CODE(141-144) IS JUST FOR TESTING!!! SHOULD NOT BE USED!
+                    if(i == 4) {
+                        recovery_calib(5,false,512);
+                    }
+
                     sleep_ms(3000);
                 }
                 state = INITIAL_STATE;
+                calibrated = false;
                 break;
             }
 
@@ -208,12 +222,38 @@ void move_one_step(void) {
     sleep_ms(CHANGE_SPEED);
 }
 
-//function that calibrate the motor
-void perform_calib() {
-    //initialize variables
+bool check_for_edge(bool rising_edge) {
     bool start = false;
     int previous_value = 0;
     int current_value = 0;
+
+    //set the motor to rotate reversely
+    if(rising_edge) {
+        reverse = true;
+        previous_value = 1;
+        current_value = 1;
+    }
+
+    while (!start) {
+        //move the motor step by step and record the current value and previous value
+        move_one_step();
+        previous_value = current_value;
+        current_value = gpio_get(OPTO_FORK);
+
+        // Detect edge
+        if (rising_edge && current_value && !previous_value) {
+            start = true;
+        }
+        else if (!rising_edge && !current_value && previous_value) {
+            start = true;
+        }
+    }
+    return start;
+}
+
+//function that calibrate the motor
+void perform_calib() {
+    //initialize variable
     int step_count = 0;
 
     //clears step per revolution for another round of calibration
@@ -221,17 +261,12 @@ void perform_calib() {
 
     //clear the step_count for a new calibration
     step_count = 0;
-    while(!start) {
-        //move the motor step by step and record the current value and previous value
-        move_one_step();
-        previous_value = current_value;
-        current_value = gpio_get(OPTO_FORK);
+    check_for_edge(false);
 
-        //detect falling edge and set start as true
-        if(!current_value && previous_value) {
-            start = true;
-        }
-    }
+    //since falling edge is detected, the previous value is set as 1 and the current value as 0
+    int previous_value = 1;
+    int current_value = 0;
+
     //iterate for trial times
     for(int i = 0; i< TRIAL; ++i) {
         //detect a full falling edge and increment the steps based on that
@@ -351,23 +386,11 @@ void led_off(int led) {
     gpio_put(led, false);
 }
 
-//NOT YET INCLUDED IN THE MAIN PROGRAM! NEED EEPROM SAVING STATUS TO PROCEED.
+//NOT YET COMPLETED IN THE MAIN PROGRAM! NEED EEPROM SAVING STATUS TO PROCEED.
 void recovery_calib(int current_compartment, bool dispensed, int compartment_steps) {
-    bool start = false;
-    reverse = true;
-    int previous_value = 1;
-    int current_value = 1;
+    //reverse = true;
 
-    //found the calibrated part
-    while(!start) {
-        move_one_step();
-        previous_value = current_value;
-        current_value = gpio_get(OPTO_FORK);
-        //detect the rising edge
-        if(current_value && !previous_value) {
-            start = true;
-        }
-    }
+    check_for_edge(true);
 
     reverse = false;
 
