@@ -22,15 +22,16 @@ void led_bright(int led);
 bool detect_pill();
 bool check_pill_dispensed(void);
 void led_off(int led);
-void recovery_calib(int current_compartment, bool dispensed, int compartment_steps);
+void recovery_calib(int current_compartment, int compartment_steps);
 uint16_t read_step_from_eeprom();
+int check_power_cut();
 
 #define BAUDRATE 100000   // 100kHz baudrate for eeprom
 #define HIGH 1
 #define LOW 0
 #define TOTAL_STEP 8
 #define COILS 4
-#define CHANGE_SPEED 6
+#define CHANGE_SPEED 1
 #define IN1 2
 #define IN2 3
 #define IN3 6
@@ -52,6 +53,9 @@ uint16_t read_step_from_eeprom();
 #define LOG_MESSAGE_SIZE 61
 #define ADDRESS_FOR_DAY 0x0802
 #define ADDRESS_FOR_STEP 0x0803
+#define ADDRESS_BOOT_STATUS 0X0800
+#define BOOT 1
+#define UN_BOOT 0
 
 
 typedef enum {
@@ -64,6 +68,10 @@ typedef enum {
 
 static queue_t events;
 static uint last_event_time = 0;
+static uint16_t last_step = 0;
+static uint8_t boot_status = 0;
+static uint8_t last_day_dispensed = 0;
+
 
 //function for interrupts and events
 static void gpio_handler(uint gpio, uint32_t event) {
@@ -103,7 +111,7 @@ static const uint half_stepping[TOTAL_STEP][COILS] = {
     {HIGH, LOW, LOW, HIGH}
     };
 
-static int steps_per_revolution = 0;
+static int steps_per_revolution = 4096;
 static bool reverse = false;
 
 int main() {
@@ -146,26 +154,17 @@ int main() {
     // Array for sending states to eeprom
     uint8_t curr_state[LOG_MESSAGE_SIZE];
     // Initial Boot message upon start
-    write_log_message(curr_state, "Boot");
+    //write_log_message(curr_state, "Boot");
 
-    // Print last saved step
-    uint16_t last_step = read_step_from_eeprom();
-    if (last_step == 0xFFFF) {  // Assuming 0xFFFF means no step has been saved
-        printf("No previous step saved.\n");
-    } else {
-        printf("Stopped at step %u\n", last_step);
+    //read_step_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    read_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    if(boot_status == BOOT || boot_status == UN_BOOT) {
+        state = check_power_cut();
+        printf("State: %d\n", state);
     }
-
-    // Print last day dispensed
-    uint8_t last_day_dispensed;
-    if (read_from_eeprom(ADDRESS_FOR_DAY, &last_day_dispensed, 1)) {
-        printf("Last day dispensed: %u\n", last_day_dispensed);
-    } else printf("Error retrieving days.\n");
-
 
     //Main menu
     while(true) {
-
         switch (state) {
             case INITIAL_STATE:
                 blink_led(LED, BLINK_WAIT);
@@ -182,8 +181,8 @@ int main() {
                 else {
                     printf("Calibration done already for this round.\n");
                 }
+                print_eeprom_logs();
                 state = LED_ON;
-            print_eeprom_logs();
             break;
 
             case LED_ON:
@@ -194,30 +193,41 @@ int main() {
                 //make led off to see the blinks properly
                 led_off(LED);
                 printf("SW2_PRESSED\n");
-                for (int i = 0; i < DAYS; i++) {
+                while(boot_status !=BOOT) {
+                    boot_status = BOOT;
+                    write_byte_to_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+                    read_step_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+                    printf("Boot status: %d\n", boot_status);
+                }
+                int day = 0;
+                if(last_day_dispensed != 0) {
+                    day = last_day_dispensed;
+                }
+                for (day; day < DAYS; day++) {
                     rotate_one_compartment();
                     if (detect_pill()) {
-                        printf("Pill detected for day %d\n", i + 1);
+                        printf("Pill detected for day %d\n", day + 1);
                     } else {
                         //led blinks when no pill detected
                         for (int i = 0; i < 5; ++i) {
                             blink_led(LED, 100);
                         }
-                        printf("Pill NOT detected for day %d\n", i + 1);
+                        printf("Pill NOT detected for day %d\n", day + 1);
                     }
                     // Saving last day dispensed
-                    uint8_t day_dispensed = i + 1;
-                    write_byte_to_eeprom(ADDRESS_FOR_DAY, &day_dispensed, 1);
-
-                    //THIS PIECE OF CODE(141-144) IS JUST FOR TESTING!!! SHOULD NOT BE USED!
-                    if(i == 4) {
-                        recovery_calib(5,false,512);
-                    }
-
+                    last_day_dispensed = day + 1;
+                    write_byte_to_eeprom(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
+                    printf("boot status: %d\n", boot_status);
+                    printf("Pill dispensed for day %d\n", last_day_dispensed);
                     sleep_ms(3000);
                 }
-                state = INITIAL_STATE;
+                print_eeprom_logs();
                 calibrated = false;
+                last_day_dispensed = 0;
+                boot_status = UN_BOOT;
+                last_step = 0;
+                delete_eeprom_log();
+                state = INITIAL_STATE;
                 break;
             }
 
@@ -442,7 +452,7 @@ void led_off(int led) {
 }
 
 //NOT YET COMPLETED IN THE MAIN PROGRAM! NEED EEPROM SAVING STATUS TO PROCEED.
-void recovery_calib(int current_compartment, bool dispensed, int compartment_steps) {
+void recovery_calib(int current_compartment, int compartment_steps) {
     //reverse = true;
 
     check_for_edge(true);
@@ -457,9 +467,7 @@ void recovery_calib(int current_compartment, bool dispensed, int compartment_ste
     //wait for 2s
     sleep_ms(2000);
 
-    if(dispensed) {
-        ++current_compartment;
-    }
+    //++current_compartment;
     for(int i = 0; i < current_compartment * compartment_steps; ++i) {
         move_one_step();
     }
@@ -473,4 +481,29 @@ uint16_t read_step_from_eeprom() {
 
     uint16_t step = ((uint16_t)msb << 8) | lsb;
     return step;
+}
+
+int check_power_cut(){
+    read_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    printf("boot_status = %d\n", boot_status);
+    if (boot_status == BOOT) {
+        printf("Reboot or power cut off detected. \n");
+        // Print last saved step
+        last_step = read_step_from_eeprom();
+        if (last_step == 0xFFFF) {  // Assuming 0xFFFF means no step has been saved
+            printf("No previous step saved.\n");
+        }else{
+            printf("Stopped at step %u\n", last_step);
+        }
+
+        read_from_eeprom(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
+        recovery_calib(last_day_dispensed, steps_per_revolution/(DAYS+1));
+        return SW2_PRESSED;
+    }
+
+    boot_status = UN_BOOT;
+    write_byte_to_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    //read_step_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    read_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    return INITIAL_STATE;
 }
