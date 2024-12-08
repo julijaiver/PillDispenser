@@ -34,7 +34,6 @@ bool write_byte_to_eeprom(uint16_t address, uint8_t *data, size_t data_len) {
     uint len = (sizeof(data_buf) / sizeof(data_buf[0]));
 
     int result = i2c_write_blocking(i2c0, EEPROM_ADDRESS, data_buf, len, false);
-    sleep_ms(20);
 
     return result == len;
 }
@@ -91,6 +90,16 @@ bool write_log_to_eeprom(const uint8_t *message, size_t message_len) {
     write_byte_to_eeprom(MAX_LOG_ADDRESS + BUFFER_SIZE, (uint8_t *)&log_addr, sizeof(log_addr));
 
     return result == BUFFER_SIZE + 2;
+}
+
+void write_log_message(uint8_t *message_array, const char *message_content) {
+    size_t message_len = strlen(message_content);
+    memcpy(message_array, message_content, message_len);
+    if (write_log_to_eeprom(message_array, message_len)) {
+        printf("Successfully written to eeprom\n");
+    } else {
+        printf("Failed to write to eeprom\n");
+    }
 }
 
 bool read_from_eeprom(uint16_t address, uint8_t *data, size_t data_len) {
