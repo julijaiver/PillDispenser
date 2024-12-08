@@ -30,7 +30,7 @@ uint16_t read_step_from_eeprom();
 #define LOW 0
 #define TOTAL_STEP 8
 #define COILS 4
-#define CHANGE_SPEED 5
+#define CHANGE_SPEED 6
 #define IN1 2
 #define IN2 3
 #define IN3 6
