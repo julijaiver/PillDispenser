@@ -81,7 +81,6 @@ bool write_log_to_eeprom(const uint8_t *message, size_t message_len) {
     memcpy(&data_buf[2], log_message_buf, BUFFER_SIZE);
 
     int result = i2c_write_blocking(i2c0, EEPROM_ADDRESS, data_buf, BUFFER_SIZE+2, false);
-    sleep_ms(20);
 
     log_addr += BUFFER_SIZE;
     if (log_addr > MAX_LOG_ADDRESS) {
