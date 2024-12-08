@@ -6,8 +6,9 @@
 #include <stdlib.h>
 #include "pico/util/queue.h"
 #include "pico/time.h"
+#include "eeprom_log.h"
 
-
+void initialize_i2c(void);
 void initialize_controller(uint controller);
 void rotate_one_compartment();
 void move_one_step(void);
@@ -18,17 +19,18 @@ void initialize_button (int button);
 void initialize_led(int led);
 void blink_led(int led, uint delay);
 void led_bright(int led);
-void gpio_handler(uint gpio, uint32_t event);
 bool detect_pill();
 bool check_pill_dispensed(void);
 void led_off(int led);
 void recovery_calib(int current_compartment, bool dispensed, int compartment_steps);
+uint16_t read_step_from_eeprom();
 
+#define BAUDRATE 100000   // 100kHz baudrate for eeprom
 #define HIGH 1
 #define LOW 0
 #define TOTAL_STEP 8
 #define COILS 4
-#define CHANGE_SPEED 1
+#define CHANGE_SPEED 5
 #define IN1 2
 #define IN2 3
 #define IN3 6
@@ -47,6 +49,10 @@ void recovery_calib(int current_compartment, bool dispensed, int compartment_ste
 #define MAX_QUEUE 100
 #define FALL_TIME 85 //calculated what is the maximum time needed in theory for a pill to drop. t= sqrt((2*0.035)/9.8) = 0.085 s.
 #define EQUIP_INACCURACY_REVERSE 207
+#define LOG_MESSAGE_SIZE 61
+#define ADDRESS_FOR_DAY 0x0802
+#define ADDRESS_FOR_STEP 0x0803
+
 
 typedef enum {
     INITIAL_STATE = 0,
@@ -55,6 +61,35 @@ typedef enum {
     PILL_DISPENSED = 3,
     LED_ON = 4,
 } Event;
+
+static queue_t events;
+static uint last_event_time = 0;
+
+//function for interrupts and events
+static void gpio_handler(uint gpio, uint32_t event) {
+    uint64_t current_time = time_us_64();
+    uint64_t elapsed_time = current_time - last_event_time;
+
+    if (elapsed_time > 10000) {  //debounce
+        last_event_time = current_time;
+
+        if (gpio == SW_1) {
+            Event sw1_pressed = SW1_PRESSED;
+            queue_try_add(&events, &sw1_pressed);
+        } else if (gpio == SW_2) {
+            Event sw2_pressed = SW2_PRESSED;
+            queue_try_add(&events, &sw2_pressed);
+        }
+    }
+    if (elapsed_time > 20000) {
+        //debounce for pill dropping
+        last_event_time = current_time;
+        if (gpio == PIEZO_SENSOR) {
+            Event pill_detected = PILL_DISPENSED;
+            queue_try_add(&events, &pill_detected);
+        }
+    }
+}
 
 //set driving sequence for half stepping
 static const uint half_stepping[TOTAL_STEP][COILS] = {
@@ -69,12 +104,10 @@ static const uint half_stepping[TOTAL_STEP][COILS] = {
     };
 
 static int steps_per_revolution = 0;
-
-static queue_t events;
-static uint last_event_time = 0;
 static bool reverse = false;
 
 int main() {
+    timer_hw->dbgpause = 0;
     // Initialize motor controllers and opto fork
     initialize_controller(IN1);
     initialize_controller(IN2);
@@ -91,6 +124,9 @@ int main() {
     initialize_button(PIEZO_SENSOR);
     initialize_led(LED);
 
+    // Initialize eeprom
+    initialize_i2c();
+
     // Initialize chosen serial port
     stdio_init_all();
     //Initialize queue
@@ -101,9 +137,31 @@ int main() {
     gpio_set_irq_enabled(SW_1, GPIO_IRQ_EDGE_FALL, true);
     gpio_set_irq_enabled(SW_2, GPIO_IRQ_EDGE_FALL, true);
 
+
     Event current_event = INITIAL_STATE;
     uint state = 0;
     bool calibrated = false;
+
+
+    // Array for sending states to eeprom
+    uint8_t curr_state[LOG_MESSAGE_SIZE];
+    // Initial Boot message upon start
+    write_log_message(curr_state, "Boot");
+
+    // Print last saved step
+    uint16_t last_step = read_step_from_eeprom();
+    if (last_step == 0xFFFF) {  // Assuming 0xFFFF means no step has been saved
+        printf("No previous step saved.\n");
+    } else {
+        printf("Stopped at step %u\n", last_step);
+    }
+
+    // Print last day dispensed
+    uint8_t last_day_dispensed;
+    if (read_from_eeprom(ADDRESS_FOR_DAY, &last_day_dispensed, 1)) {
+        printf("Last day dispensed: %u\n", last_day_dispensed);
+    } else printf("Error retrieving days.\n");
+
 
     //Main menu
     while(true) {
@@ -115,7 +173,9 @@ int main() {
             case SW1_PRESSED:
                 printf("SW1_PRESSED\n");
                 if(!calibrated) {
+                    write_log_message(curr_state, "Calibrating");
                     perform_calib();
+                    write_log_message(curr_state, "Device calibrated");
                     printf("Device calibrated.\n");
                     calibrated = true;
                 }
@@ -123,6 +183,7 @@ int main() {
                     printf("Calibration done already for this round.\n");
                 }
                 state = LED_ON;
+            print_eeprom_logs();
             break;
 
             case LED_ON:
@@ -144,6 +205,9 @@ int main() {
                         }
                         printf("Pill NOT detected for day %d\n", i + 1);
                     }
+                    // Saving last day dispensed
+                    uint8_t day_dispensed = i + 1;
+                    write_byte_to_eeprom(ADDRESS_FOR_DAY, &day_dispensed, 1);
 
                     //THIS PIECE OF CODE(141-144) IS JUST FOR TESTING!!! SHOULD NOT BE USED!
                     if(i == 4) {
@@ -176,6 +240,16 @@ int main() {
     return 0;
 }
 
+void initialize_i2c(void) {
+    const int sda = 16;
+    const int scl = 17;
+    i2c_init(i2c0, BAUDRATE);
+    gpio_set_function(sda, GPIO_FUNC_I2C);
+    gpio_set_function(scl, GPIO_FUNC_I2C);
+    gpio_pull_up(sda);
+    gpio_pull_up(scl);
+}
+
 //initialize motor controller
 void initialize_controller(uint controller) {
     gpio_init(controller);
@@ -189,13 +263,21 @@ void rotate_one_compartment() {
     current_day = (current_day % DAYS)+1;
 
     //record the current position (range 0-511)
-    static int current_position = 0;
+    //static int current_position = 0;
 
     //driving the motor with half stepping and run motor number times 1/8 of a revolution
     int number = steps_per_revolution / TOTAL_STEP;
     for (int i = 0; i< number; ++i) {
-        current_position = i;
+        uint16_t current_position = i;
         move_one_step();
+
+        //Save step to eeprom
+        uint8_t msb = (uint8_t) ((current_position >> 8) & 0xFF);
+        uint8_t lsb = (uint8_t) (current_position & 0xFF);
+
+        write_byte_to_eeprom(ADDRESS_FOR_STEP, &msb, sizeof(msb));
+        write_byte_to_eeprom(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb));
+
     }
 }
 
@@ -325,33 +407,6 @@ void led_bright(int led) {
     gpio_put(led, true);
 }
 
-//function for interrupts and events
-void gpio_handler(uint gpio, uint32_t event) {
-    uint64_t current_time = time_us_64();
-    uint64_t elapsed_time = current_time - last_event_time;
-
-    if (elapsed_time > 10000) {  //debounce
-        last_event_time = current_time;
-
-        if (gpio == SW_1) {
-            Event sw1_pressed = SW1_PRESSED;
-            queue_try_add(&events, &sw1_pressed);
-        } else if (gpio == SW_2) {
-            Event sw2_pressed = SW2_PRESSED;
-            queue_try_add(&events, &sw2_pressed);
-        }
-    }
-    if (elapsed_time > 20000) {
-        //debounce for pill dropping
-        last_event_time = current_time;
-        if (gpio == PIEZO_SENSOR) {
-            Event pill_detected = PILL_DISPENSED;
-            queue_try_add(&events, &pill_detected);
-        }
-    }
-}
-
-
 //function for detecting the pill dropping
 bool detect_pill() {
     const uint pill_drop_timeout = FALL_TIME;
@@ -408,4 +463,14 @@ void recovery_calib(int current_compartment, bool dispensed, int compartment_ste
     for(int i = 0; i < current_compartment * compartment_steps; ++i) {
         move_one_step();
     }
+}
+
+uint16_t read_step_from_eeprom() {
+    uint8_t msb, lsb;
+
+    read_from_eeprom(ADDRESS_FOR_STEP, &msb, sizeof(msb));
+    read_from_eeprom(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb));
+
+    uint16_t step = ((uint16_t)msb << 8) | lsb;
+    return step;
 }

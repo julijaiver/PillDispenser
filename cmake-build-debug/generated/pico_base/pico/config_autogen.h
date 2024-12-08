@@ -5,7 +5,6 @@
 // based on PICO_CONFIG_HEADER_FILES:
 
 #include "C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/boards/include/boards/pico_w.h"
+#include "C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h"
 
 // based on PICO_RP2040_CONFIG_HEADER_FILES:
-
-#include "C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h"

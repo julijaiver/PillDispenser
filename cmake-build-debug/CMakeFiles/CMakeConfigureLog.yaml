@@ -115,8 +115,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-t73ieh"
-      binary: "C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-t73ieh"
+      source: "C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-c661vh"
+      binary: "C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-c661vh"
     cmakeVariables:
       CMAKE_C_FLAGS: "-mcpu=cortex-m0plus -mthumb"
       CMAKE_C_FLAGS_DEBUG: "-Og -g"
@@ -126,13 +126,13 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-t73ieh'
+        Change Dir: 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-c661vh'
         
-        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_4a7d7/fast
-        C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_4a7d7.dir\\build.make CMakeFiles/cmTC_4a7d7.dir/build
-        mingw32-make[1]: Entering directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-t73ieh'
-        Building C object CMakeFiles/cmTC_4a7d7.dir/CMakeCCompilerABI.c.obj
-        C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe   -mcpu=cortex-m0plus -mthumb  -fdiagnostics-color=always   -v -o CMakeFiles\\cmTC_4a7d7.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_fd4fa/fast
+        C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_fd4fa.dir\\build.make CMakeFiles/cmTC_fd4fa.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-c661vh'
+        Building C object CMakeFiles/cmTC_fd4fa.dir/CMakeCCompilerABI.c.obj
+        C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe   -mcpu=cortex-m0plus -mthumb  -fdiagnostics-color=always   -v -o CMakeFiles\\cmTC_fd4fa.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
         Using built-in specs.
         COLLECT_GCC=C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe
         Target: arm-none-eabi
@@ -140,8 +140,8 @@ events:
         Thread model: single
         Supported LTO compression algorithms: zlib
         gcc version 10.3.1 20210824 (release) (GNU Arm Embedded Toolchain 10.3-2021.10) 
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_4a7d7.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
-         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../lib/gcc/arm-none-eabi/10.3.1/ -isysroot c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -auxbase-strip CMakeFiles\\cmTC_4a7d7.dir\\CMakeCCompilerABI.c.obj -version -fdiagnostics-color=always -o C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccZRIZsi.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_fd4fa.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
+         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../lib/gcc/arm-none-eabi/10.3.1/ -isysroot c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -auxbase-strip CMakeFiles\\cmTC_fd4fa.dir\\CMakeCCompilerABI.c.obj -version -fdiagnostics-color=always -o C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccinO8FO.s
         GNU C17 (GNU Arm Embedded Toolchain 10.3-2021.10) version 10.3.1 20210824 (release) (arm-none-eabi)
         	compiled by GNU C version 7.3-win32 20180312, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
         
@@ -162,15 +162,15 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: f3937ce18b4177bfd408ca565336596a
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_4a7d7.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
-         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_4a7d7.dir\\CMakeCCompilerABI.c.obj C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccZRIZsi.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_fd4fa.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
+         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_fd4fa.dir\\CMakeCCompilerABI.c.obj C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccinO8FO.s
         GNU assembler version 2.36.1 (arm-none-eabi) using BFD version (GNU Arm Embedded Toolchain 10.3-2021.10) 2.36.1.20210621
         COMPILER_PATH=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_4a7d7.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
-        Linking C executable cmTC_4a7d7.elf
-        "C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_4a7d7.dir\\link.txt --verbose=1
-        C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -mcpu=cortex-m0plus -mthumb  -Wl,--build-id=none -nostdlib  -v CMakeFiles/cmTC_4a7d7.dir/CMakeCCompilerABI.c.obj -o cmTC_4a7d7.elf
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_fd4fa.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
+        Linking C executable cmTC_fd4fa.elf
+        "C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_fd4fa.dir\\link.txt --verbose=1
+        C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -mcpu=cortex-m0plus -mthumb  -Wl,--build-id=none -nostdlib  -v CMakeFiles/cmTC_fd4fa.dir/CMakeCCompilerABI.c.obj -o cmTC_fd4fa.elf
         Using built-in specs.
         COLLECT_GCC=C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe
         COLLECT_LTO_WRAPPER=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe
@@ -181,11 +181,11 @@ events:
         gcc version 10.3.1 20210824 (release) (GNU Arm Embedded Toolchain 10.3-2021.10) 
         COMPILER_PATH=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_4a7d7.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
-         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/collect2.exe -plugin c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/liblto_plugin-0.dll -plugin-opt=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccq3hwHg.res --sysroot=c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -X -o cmTC_4a7d7.elf -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1 -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_4a7d7.dir/CMakeCCompilerABI.c.obj
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_fd4fa.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
+         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/collect2.exe -plugin c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/liblto_plugin-0.dll -plugin-opt=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Lenovo\\AppData\\Local\\Temp\\cc4hpFpY.res --sysroot=c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -X -o cmTC_fd4fa.elf -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1 -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_fd4fa.dir/CMakeCCompilerABI.c.obj
         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: cannot find entry symbol _start; defaulting to 00008000
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_4a7d7.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
-        mingw32-make[1]: Leaving directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-t73ieh'
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_fd4fa.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
+        mingw32-make[1]: Leaving directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-c661vh'
         
       exitCode: 0
   -
@@ -218,13 +218,13 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-t73ieh']
+        ignore line: [Change Dir: 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-c661vh']
         ignore line: []
-        ignore line: [Run Build Command(s): "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_4a7d7/fast]
-        ignore line: [C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_4a7d7.dir\\build.make CMakeFiles/cmTC_4a7d7.dir/build]
-        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-t73ieh']
-        ignore line: [Building C object CMakeFiles/cmTC_4a7d7.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe   -mcpu=cortex-m0plus -mthumb  -fdiagnostics-color=always   -v -o CMakeFiles\\cmTC_4a7d7.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"]
+        ignore line: [Run Build Command(s): "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_fd4fa/fast]
+        ignore line: [C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_fd4fa.dir\\build.make CMakeFiles/cmTC_fd4fa.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-c661vh']
+        ignore line: [Building C object CMakeFiles/cmTC_fd4fa.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe   -mcpu=cortex-m0plus -mthumb  -fdiagnostics-color=always   -v -o CMakeFiles\\cmTC_fd4fa.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe]
         ignore line: [Target: arm-none-eabi]
@@ -232,8 +232,8 @@ events:
         ignore line: [Thread model: single]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 10.3.1 20210824 (release) (GNU Arm Embedded Toolchain 10.3-2021.10) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_4a7d7.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
-        ignore line: [ c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../lib/gcc/arm-none-eabi/10.3.1/ -isysroot c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -auxbase-strip CMakeFiles\\cmTC_4a7d7.dir\\CMakeCCompilerABI.c.obj -version -fdiagnostics-color=always -o C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccZRIZsi.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_fd4fa.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
+        ignore line: [ c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../lib/gcc/arm-none-eabi/10.3.1/ -isysroot c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -auxbase-strip CMakeFiles\\cmTC_fd4fa.dir\\CMakeCCompilerABI.c.obj -version -fdiagnostics-color=always -o C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccinO8FO.s]
         ignore line: [GNU C17 (GNU Arm Embedded Toolchain 10.3-2021.10) version 10.3.1 20210824 (release) (arm-none-eabi)]
         ignore line: [	compiled by GNU C version 7.3-win32 20180312  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
         ignore line: []
@@ -254,8 +254,8 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: f3937ce18b4177bfd408ca565336596a]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_4a7d7.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
-        ignore line: [ c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_4a7d7.dir\\CMakeCCompilerABI.c.obj C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccZRIZsi.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_fd4fa.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
+        ignore line: [ c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_fd4fa.dir\\CMakeCCompilerABI.c.obj C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccinO8FO.s]
         ignore line: [GNU assembler version 2.36.1 (arm-none-eabi) using BFD version (GNU Arm Embedded Toolchain 10.3-2021.10) 2.36.1.20210621]
         ignore line: [COMPILER_PATH=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/]
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/]
@@ -267,10 +267,10 @@ events:
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/]
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/]
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_4a7d7.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
-        ignore line: [Linking C executable cmTC_4a7d7.elf]
-        ignore line: ["C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_4a7d7.dir\\link.txt --verbose=1]
-        ignore line: [C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -mcpu=cortex-m0plus -mthumb  -Wl --build-id=none -nostdlib  -v CMakeFiles/cmTC_4a7d7.dir/CMakeCCompilerABI.c.obj -o cmTC_4a7d7.elf]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_fd4fa.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
+        ignore line: [Linking C executable cmTC_fd4fa.elf]
+        ignore line: ["C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_fd4fa.dir\\link.txt --verbose=1]
+        ignore line: [C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe -mcpu=cortex-m0plus -mthumb  -Wl --build-id=none -nostdlib  -v CMakeFiles/cmTC_fd4fa.dir/CMakeCCompilerABI.c.obj -o cmTC_fd4fa.elf]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-gcc.exe]
         ignore line: [COLLECT_LTO_WRAPPER=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe]
@@ -289,17 +289,17 @@ events:
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/]
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/]
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_4a7d7.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
-        link line: [ c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/collect2.exe -plugin c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/liblto_plugin-0.dll -plugin-opt=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccq3hwHg.res --sysroot=c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -X -o cmTC_4a7d7.elf -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1 -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_4a7d7.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_fd4fa.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
+        link line: [ c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/collect2.exe -plugin c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/liblto_plugin-0.dll -plugin-opt=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Lenovo\\AppData\\Local\\Temp\\cc4hpFpY.res --sysroot=c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -X -o cmTC_fd4fa.elf -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1 -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_fd4fa.dir/CMakeCCompilerABI.c.obj]
           arg [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/liblto_plugin-0.dll] ==> ignore
           arg [-plugin-opt=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccq3hwHg.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\Lenovo\\AppData\\Local\\Temp\\cc4hpFpY.res] ==> ignore
           arg [--sysroot=c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi] ==> ignore
           arg [-X] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_4a7d7.elf] ==> ignore
+          arg [cmTC_fd4fa.elf] ==> ignore
           arg [-Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp] ==> dir [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp]
           arg [-Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp] ==> dir [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp]
           arg [-Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp] ==> dir [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp]
@@ -308,11 +308,11 @@ events:
           arg [-Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib] ==> dir [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib]
           arg [-Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib] ==> dir [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib]
           arg [--build-id=none] ==> ignore
-          arg [CMakeFiles/cmTC_4a7d7.dir/CMakeCCompilerABI.c.obj] ==> ignore
+          arg [CMakeFiles/cmTC_fd4fa.dir/CMakeCCompilerABI.c.obj] ==> ignore
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: cannot find entry symbol _start]
         ignore line: [ defaulting to 00008000]
-        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_4a7d7.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
-        ignore line: [mingw32-make[1]: Leaving directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-t73ieh']
+        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_fd4fa.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
+        ignore line: [mingw32-make[1]: Leaving directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-c661vh']
         ignore line: []
         ignore line: []
         collapse library dir [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp] ==> [C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp]
@@ -337,8 +337,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-siho3v"
-      binary: "C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-siho3v"
+      source: "C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fxyf9d"
+      binary: "C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fxyf9d"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "-mcpu=cortex-m0plus -mthumb"
       CMAKE_CXX_FLAGS_DEBUG: "-Og -g"
@@ -349,13 +349,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-siho3v'
+        Change Dir: 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fxyf9d'
         
-        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_38707/fast
-        C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_38707.dir\\build.make CMakeFiles/cmTC_38707.dir/build
-        mingw32-make[1]: Entering directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-siho3v'
-        Building CXX object CMakeFiles/cmTC_38707.dir/CMakeCXXCompilerABI.cpp.obj
-        C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-g++.exe   -mcpu=cortex-m0plus -mthumb  -fdiagnostics-color=always   -v -o CMakeFiles\\cmTC_38707.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_f97ff/fast
+        C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_f97ff.dir\\build.make CMakeFiles/cmTC_f97ff.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fxyf9d'
+        Building CXX object CMakeFiles/cmTC_f97ff.dir/CMakeCXXCompilerABI.cpp.obj
+        C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-g++.exe   -mcpu=cortex-m0plus -mthumb  -fdiagnostics-color=always   -v -o CMakeFiles\\cmTC_f97ff.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
         Using built-in specs.
         COLLECT_GCC=C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-g++.exe
         Target: arm-none-eabi
@@ -363,8 +363,8 @@ events:
         Thread model: single
         Supported LTO compression algorithms: zlib
         gcc version 10.3.1 20210824 (release) (GNU Arm Embedded Toolchain 10.3-2021.10) 
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_38707.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
-         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1plus.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../lib/gcc/arm-none-eabi/10.3.1/ -isysroot c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -auxbase-strip CMakeFiles\\cmTC_38707.dir\\CMakeCXXCompilerABI.cpp.obj -version -fdiagnostics-color=always -o C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccEMp6eE.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_f97ff.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
+         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1plus.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../lib/gcc/arm-none-eabi/10.3.1/ -isysroot c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -auxbase-strip CMakeFiles\\cmTC_f97ff.dir\\CMakeCXXCompilerABI.cpp.obj -version -fdiagnostics-color=always -o C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccNmzBUi.s
         GNU C++14 (GNU Arm Embedded Toolchain 10.3-2021.10) version 10.3.1 20210824 (release) (arm-none-eabi)
         	compiled by GNU C version 7.3-win32 20180312, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
         
@@ -391,15 +391,15 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: f8787892a7c5aa84cea58dce52be7118
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_38707.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
-         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_38707.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccEMp6eE.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_f97ff.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
+         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_f97ff.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccNmzBUi.s
         GNU assembler version 2.36.1 (arm-none-eabi) using BFD version (GNU Arm Embedded Toolchain 10.3-2021.10) 2.36.1.20210621
         COMPILER_PATH=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_38707.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
-        Linking CXX executable cmTC_38707.elf
-        "C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_38707.dir\\link.txt --verbose=1
-        C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-g++.exe -mcpu=cortex-m0plus -mthumb  -Wl,--build-id=none -nostdlib  -v CMakeFiles/cmTC_38707.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_38707.elf
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_f97ff.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
+        Linking CXX executable cmTC_f97ff.elf
+        "C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_f97ff.dir\\link.txt --verbose=1
+        C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-g++.exe -mcpu=cortex-m0plus -mthumb  -Wl,--build-id=none -nostdlib  -v CMakeFiles/cmTC_f97ff.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_f97ff.elf
         Using built-in specs.
         COLLECT_GCC=C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-g++.exe
         COLLECT_LTO_WRAPPER=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe
@@ -410,11 +410,11 @@ events:
         gcc version 10.3.1 20210824 (release) (GNU Arm Embedded Toolchain 10.3-2021.10) 
         COMPILER_PATH=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/;c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_38707.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
-         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/collect2.exe -plugin c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/liblto_plugin-0.dll -plugin-opt=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Lenovo\\AppData\\Local\\Temp\\cc6e0lSK.res --sysroot=c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -X -o cmTC_38707.elf -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1 -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_38707.dir/CMakeCXXCompilerABI.cpp.obj
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_f97ff.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
+         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/collect2.exe -plugin c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/liblto_plugin-0.dll -plugin-opt=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccFC4Gxs.res --sysroot=c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -X -o cmTC_f97ff.elf -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1 -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_f97ff.dir/CMakeCXXCompilerABI.cpp.obj
         c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: cannot find entry symbol _start; defaulting to 00008000
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_38707.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
-        mingw32-make[1]: Leaving directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-siho3v'
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_f97ff.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m'
+        mingw32-make[1]: Leaving directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fxyf9d'
         
       exitCode: 0
   -
@@ -453,13 +453,13 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-siho3v']
+        ignore line: [Change Dir: 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fxyf9d']
         ignore line: []
-        ignore line: [Run Build Command(s): "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_38707/fast]
-        ignore line: [C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_38707.dir\\build.make CMakeFiles/cmTC_38707.dir/build]
-        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-siho3v']
-        ignore line: [Building CXX object CMakeFiles/cmTC_38707.dir/CMakeCXXCompilerABI.cpp.obj]
-        ignore line: [C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-g++.exe   -mcpu=cortex-m0plus -mthumb  -fdiagnostics-color=always   -v -o CMakeFiles\\cmTC_38707.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"]
+        ignore line: [Run Build Command(s): "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/cmake/win/x64/bin/cmake.exe" -E env VERBOSE=1 C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f Makefile cmTC_f97ff/fast]
+        ignore line: [C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_f97ff.dir\\build.make CMakeFiles/cmTC_f97ff.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fxyf9d']
+        ignore line: [Building CXX object CMakeFiles/cmTC_f97ff.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-g++.exe   -mcpu=cortex-m0plus -mthumb  -fdiagnostics-color=always   -v -o CMakeFiles\\cmTC_f97ff.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-g++.exe]
         ignore line: [Target: arm-none-eabi]
@@ -467,8 +467,8 @@ events:
         ignore line: [Thread model: single]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 10.3.1 20210824 (release) (GNU Arm Embedded Toolchain 10.3-2021.10) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_38707.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
-        ignore line: [ c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1plus.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../lib/gcc/arm-none-eabi/10.3.1/ -isysroot c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -auxbase-strip CMakeFiles\\cmTC_38707.dir\\CMakeCXXCompilerABI.cpp.obj -version -fdiagnostics-color=always -o C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccEMp6eE.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_f97ff.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
+        ignore line: [ c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/cc1plus.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../lib/gcc/arm-none-eabi/10.3.1/ -isysroot c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -auxbase-strip CMakeFiles\\cmTC_f97ff.dir\\CMakeCXXCompilerABI.cpp.obj -version -fdiagnostics-color=always -o C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccNmzBUi.s]
         ignore line: [GNU C++14 (GNU Arm Embedded Toolchain 10.3-2021.10) version 10.3.1 20210824 (release) (arm-none-eabi)]
         ignore line: [	compiled by GNU C version 7.3-win32 20180312  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
         ignore line: []
@@ -495,8 +495,8 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: f8787892a7c5aa84cea58dce52be7118]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_38707.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
-        ignore line: [ c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_38707.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccEMp6eE.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_f97ff.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
+        ignore line: [ c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_f97ff.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccNmzBUi.s]
         ignore line: [GNU assembler version 2.36.1 (arm-none-eabi) using BFD version (GNU Arm Embedded Toolchain 10.3-2021.10) 2.36.1.20210621]
         ignore line: [COMPILER_PATH=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/]
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/]
@@ -508,10 +508,10 @@ events:
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/]
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/]
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_38707.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
-        ignore line: [Linking CXX executable cmTC_38707.elf]
-        ignore line: ["C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_38707.dir\\link.txt --verbose=1]
-        ignore line: [C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-g++.exe -mcpu=cortex-m0plus -mthumb  -Wl --build-id=none -nostdlib  -v CMakeFiles/cmTC_38707.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_38707.elf]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_f97ff.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
+        ignore line: [Linking CXX executable cmTC_f97ff.elf]
+        ignore line: ["C:\\Program Files\\JetBrains\\CLion 2024.2.0.1\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_f97ff.dir\\link.txt --verbose=1]
+        ignore line: [C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-g++.exe -mcpu=cortex-m0plus -mthumb  -Wl --build-id=none -nostdlib  -v CMakeFiles/cmTC_f97ff.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_f97ff.elf]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\Users\\Lenovo\\Desktop\\Metropolia\\bin\\PicoSDKv1.5.0\\gcc-arm-none-eabi\\bin\\arm-none-eabi-g++.exe]
         ignore line: [COLLECT_LTO_WRAPPER=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe]
@@ -530,17 +530,17 @@ events:
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/]
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/]
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_38707.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
-        link line: [ c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/collect2.exe -plugin c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/liblto_plugin-0.dll -plugin-opt=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Lenovo\\AppData\\Local\\Temp\\cc6e0lSK.res --sysroot=c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -X -o cmTC_38707.elf -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1 -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_38707.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_f97ff.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
+        link line: [ c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/collect2.exe -plugin c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/liblto_plugin-0.dll -plugin-opt=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccFC4Gxs.res --sysroot=c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi -X -o cmTC_f97ff.elf -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1 -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib -Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_f97ff.dir/CMakeCXXCompilerABI.cpp.obj]
           arg [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/liblto_plugin-0.dll] ==> ignore
           arg [-plugin-opt=c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\Lenovo\\AppData\\Local\\Temp\\cc6e0lSK.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ccFC4Gxs.res] ==> ignore
           arg [--sysroot=c:\\users\\lenovo\\desktop\\metropolia\\bin\\picosdkv1.5.0\\gcc-arm-none-eabi\\bin\\../arm-none-eabi] ==> ignore
           arg [-X] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_38707.elf] ==> ignore
+          arg [cmTC_f97ff.elf] ==> ignore
           arg [-Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp] ==> dir [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp]
           arg [-Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp] ==> dir [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp]
           arg [-Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp] ==> dir [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib/thumb/v6-m/nofp]
@@ -549,11 +549,11 @@ events:
           arg [-Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib] ==> dir [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib]
           arg [-Lc:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib] ==> dir [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../arm-none-eabi/lib]
           arg [--build-id=none] ==> ignore
-          arg [CMakeFiles/cmTC_38707.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+          arg [CMakeFiles/cmTC_f97ff.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
         ignore line: [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: cannot find entry symbol _start]
         ignore line: [ defaulting to 00008000]
-        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_38707.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
-        ignore line: [mingw32-make[1]: Leaving directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-siho3v']
+        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_f97ff.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m']
+        ignore line: [mingw32-make[1]: Leaving directory 'C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-fxyf9d']
         ignore line: []
         ignore line: []
         collapse library dir [c:/users/lenovo/desktop/metropolia/bin/picosdkv1.5.0/gcc-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp] ==> [C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp]

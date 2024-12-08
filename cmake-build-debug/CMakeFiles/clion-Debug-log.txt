@@ -1,9 +1,12 @@
 "C:\Program Files\JetBrains\CLion 2024.2.0.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser -B C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug
 Using PICO_SDK_PATH from environment ('C:\Users\Lenovo\Desktop\Metropolia\bin\PicoSDKv1.5.0\pico-sdk')
 PICO_SDK_PATH is C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk
-Defaulting PICO_PLATFORM to rp2040 since not specified.
-Defaulting PICO platform compiler to pico_arm_gcc since not specified.
-PICO compiler is pico_arm_gcc
+Target board (PICO_BOARD) is 'pico_w'.
+Using board configuration from C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/boards/include/boards/pico_w.h
+Defaulting platform (PICO_PLATFORM) to 'rp2040' based on PICO_BOARD setting.
+Defaulting compiler (PICO_COMPILER) to 'pico_arm_cortex_m0plus_gcc' since not specified.
+Configuring toolchain based on PICO_COMPILER 'pico_arm_cortex_m0plus_gcc'
+Defaulting PICO_GCC_TRIPLE to 'arm-none-eabi'
 -- The C compiler identification is GNU 10.3.1
 -- The CXX compiler identification is GNU 10.3.1
 -- The ASM compiler identification is GNU
@@ -20,9 +23,6 @@ PICO compiler is pico_arm_gcc
 -- Detecting CXX compile features - done
 Build type is Debug
 Using regular optimized debug build (set PICO_DEOPTIMIZED_DEBUG=1 to de-optimize)
-PICO target board is pico_w.
-Using CMake board configuration from C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/boards/pico_w.cmake
-Using board configuration from C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/boards/include/boards/pico_w.h
 -- Found Python3: C:/Python312/python.exe (found version "3.12.5") found components: Interpreter
 TinyUSB available at C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040; enabling build support for USB.
 Compiling TinyUSB with CFG_TUSB_DEBUG=1
@@ -32,6 +32,20 @@ Pico W Bluetooth build support available.
 lwIP available at C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/lib/lwip
 Pico W Wi-Fi build support available.
 mbedtls available at C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/lib/mbedtls
--- Configuring done (4.1s)
--- Generating done (0.4s)
+CMake Warning at C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/tools/Findpicotool.cmake:28 (message):
+  No installed picotool with version 2.1.0 found - building from source
+
+  It is recommended to build and install picotool separately, or to set
+  PICOTOOL_FETCH_FROM_GIT_PATH to a common directory for all your SDK
+  projects
+Call Stack (most recent call first):
+  C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/tools/CMakeLists.txt:138 (find_package)
+  C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/tools/CMakeLists.txt:485 (pico_init_picotool)
+  C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/cmake/on_device.cmake:57 (picotool_postprocess_binary)
+  CMakeLists.txt:34 (pico_add_extra_outputs)
+
+
+Downloading Picotool
+-- Configuring done (8.0s)
+-- Generating done (2.4s)
 -- Build files have been written to: C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug
