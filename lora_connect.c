@@ -35,10 +35,10 @@ void send_to_uart(uart_inst_t *uart, char *string) {
     uart_write_blocking(uart, string, strlen((char *)string));
 }
 
-bool send_command_to_lora(uint8_t *send, char *response, const char *command) {
+bool send_command_to_lora(uint8_t *send, char *response, const char *command, uint32_t timeout) {
     strncpy((char *)send, command, INPUT_SIZE);
     send_to_uart(uart1, send);
-    if (read_string_from_uart(uart1, 500000, response)) {
+    if (read_string_from_uart(uart1, timeout, response)) {
         printf("Mode response: %s\n", response);
         return true;
     } else {
