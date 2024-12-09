@@ -22,9 +22,12 @@ void led_bright(int led);
 bool detect_pill();
 bool check_pill_dispensed(void);
 void led_off(int led);
-void recovery_calib(int current_compartment, int compartment_steps);
-uint16_t read_step_from_eeprom();
+void recovery_calib(int current_compartment, int revolution);
+uint16_t read_steps_per_revolution_from_eeprom();
+void write_steps_per_revolution_to_eeprom(uint16_t revolution);
 int check_power_cut();
+void set_boot(int state);
+
 
 #define UART_BAUDRATE 9600
 #define I2C_BAUDRATE 100000   // 100kHz baudrate for eeprom
@@ -57,9 +60,7 @@ int check_power_cut();
 #define ADDRESS_FOR_DAY 0x0802
 #define ADDRESS_FOR_STEP 0x0803
 #define ADDRESS_BOOT_STATUS 0X0806
-#define BOOT 1
-#define UN_BOOT 0
-
+#define UN_BOOT (-1)
 
 typedef enum {
     INITIAL_STATE = 0,
@@ -71,9 +72,13 @@ typedef enum {
 
 static queue_t events;
 static uint last_event_time = 0;
-static uint16_t last_step = 0;
-static uint8_t boot_status = 0;
+static uint8_t boot_status = UN_BOOT;
 static uint8_t last_day_dispensed = 0;
+static int steps_per_revolution = 0;
+static bool reverse = false;
+static bool calibrated = false;
+// Array for sending states to eeprom
+static uint8_t curr_state[LOG_MESSAGE_SIZE];
 
 
 //function for interrupts and events
@@ -114,9 +119,6 @@ static const uint half_stepping[TOTAL_STEP][COILS] = {
     {HIGH, LOW, LOW, HIGH}
     };
 
-static int steps_per_revolution = 4096;
-static bool reverse = false;
-
 int main() {
     timer_hw->dbgpause = 0;
     // Initialize motor controllers and opto fork
@@ -156,29 +158,24 @@ int main() {
 
     Event current_event = INITIAL_STATE;
     uint state = 0;
-    bool calibrated = false;
+    calibrated = false;
 
-
-    // Array for sending states to eeprom
-    uint8_t curr_state[LOG_MESSAGE_SIZE];
     // Initial Boot message upon start
     //write_log_message(curr_state, "Boot");
     print_eeprom_logs();
 
-    //read_step_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
     eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
-    if(boot_status == BOOT || boot_status == UN_BOOT) {
-        state = check_power_cut();
-        printf("State: %d\n", state);
-    }
+    state = check_power_cut();
 
     //Main menu
     while(true) {
         switch (state) {
             case INITIAL_STATE:
+                set_boot(INITIAL_STATE);
                 blink_led(LED, BLINK_WAIT);
                 break;
             case SW1_PRESSED:
+                set_boot(SW1_PRESSED);
                 printf("SW1_PRESSED\n");
                 if(!calibrated) {
                     write_log_message(curr_state, "Calibrating");
@@ -195,19 +192,15 @@ int main() {
             break;
 
             case LED_ON:
+                set_boot(LED_ON);
                 led_bright(LED);
             break;
 
             case SW2_PRESSED:
+                set_boot(SW2_PRESSED);
                 //make led off to see the blinks properly
                 led_off(LED);
                 printf("SW2_PRESSED\n");
-                while(boot_status !=BOOT) {
-                    boot_status = BOOT;
-                    eeprom_write(ADDRESS_BOOT_STATUS, &boot_status, 1);
-                    read_step_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
-                    printf("Boot status: %d\n", boot_status);
-                }
                 int day = 0;
                 if(last_day_dispensed != 0) {
                     day = last_day_dispensed;
@@ -233,15 +226,13 @@ int main() {
                     // Saving last day dispensed
                     last_day_dispensed = day + 1;
                     eeprom_write(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
-                    printf("boot status: %d\n", boot_status);
-                    printf("Pill dispensed for day %d\n", last_day_dispensed);
                     sleep_ms(3000);
                 }
                 print_eeprom_logs();
                 calibrated = false;
                 last_day_dispensed = 0;
-                boot_status = UN_BOOT;
-                last_step = 0;
+                set_boot(UN_BOOT);
+                steps_per_revolution = 0;
                 delete_eeprom_log();
                 state = INITIAL_STATE;
                 break;
@@ -294,7 +285,7 @@ void rotate_one_compartment() {
     //driving the motor with half stepping and run motor number times 1/8 of a revolution
     int number = steps_per_revolution / TOTAL_STEP;
     for (int i = 0; i< number; ++i) {
-        uint16_t current_position = i;
+        //uint16_t current_position = i;
         move_one_step();
 
         /*
@@ -366,6 +357,7 @@ void perform_calib() {
 
     //clears step per revolution for another round of calibration
     steps_per_revolution = 0;
+    write_steps_per_revolution_to_eeprom(steps_per_revolution);
 
     //clear the step_count for a new calibration
     step_count = 0;
@@ -393,6 +385,7 @@ void perform_calib() {
 
     //calculates the steps per revolution
     steps_per_revolution = step_count/TRIAL;
+    write_steps_per_revolution_to_eeprom(steps_per_revolution);
 }
 
 //function that checks if button is pressed. Return 1 if pressed.
@@ -467,8 +460,8 @@ void led_off(int led) {
     gpio_put(led, false);
 }
 
-//NOT YET COMPLETED IN THE MAIN PROGRAM! NEED EEPROM SAVING STATUS TO PROCEED.
-void recovery_calib(int current_compartment, int compartment_steps) {
+//function that recovers the motor to the correct position
+void recovery_calib(int current_compartment, int revolution) {
     //reverse = true;
 
     check_for_edge(true);
@@ -484,42 +477,71 @@ void recovery_calib(int current_compartment, int compartment_steps) {
     sleep_ms(2000);
 
     //++current_compartment;
-    for(int i = 0; i < current_compartment * compartment_steps; ++i) {
+    for(int i = 0; i < (revolution/(DAYS+1)) * current_compartment; ++i) {
         move_one_step();
     }
 }
 
-uint16_t read_step_from_eeprom() {
+uint16_t read_steps_per_revolution_from_eeprom() {
     uint8_t msb, lsb;
 
     eeprom_read(ADDRESS_FOR_STEP, &msb, sizeof(msb));
     eeprom_read(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb));
 
-    uint16_t step = ((uint16_t)msb << 8) | lsb;
-    return step;
+    uint16_t revolution = ((uint16_t)msb << 8) | lsb;
+    return revolution;
+}
+
+void write_steps_per_revolution_to_eeprom(uint16_t revolution) {
+    uint8_t msb = (revolution >> 8) & 0xFF;
+    uint8_t lsb = revolution & 0xFF;
+
+    eeprom_write(ADDRESS_FOR_STEP, &msb, sizeof(msb));
+    eeprom_write(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb));
 }
 
 int check_power_cut(){
     eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
-    printf("boot_status = %d\n", boot_status);
-    if (boot_status == BOOT) {
-        printf("Reboot or power cut off detected. \n");
-        // Print last saved step
-        last_step = read_step_from_eeprom();
-        if (last_step == 0xFFFF) {  // Assuming 0xFFFF means no step has been saved
-            printf("No previous step saved.\n");
-        }else{
-            printf("Stopped at step %u\n", last_step);
+    if (boot_status != UN_BOOT) {
+        printf("Reboot or power cut off detected\n");
+        if(boot_status == INITIAL_STATE) {
+            write_log_message(curr_state, "Reboot or power cut off detected in INITIAL STATE");
+            return INITIAL_STATE;
         }
+        else if(boot_status == SW1_PRESSED) {
+            write_log_message(curr_state, "Reboot or power cut off detected during CALIBRATION");
+            if(read_steps_per_revolution_from_eeprom()!= 0) {
+                printf("Calibration complete\n");
+                return LED_ON;
+            }
+            return INITIAL_STATE;
+        }
+        else if(boot_status == LED_ON) {
+            write_log_message(curr_state, "Reboot or power cut off detected during WAITING");
+            steps_per_revolution = read_steps_per_revolution_from_eeprom();
+            calibrated = true;
+            return LED_ON;
+        }
+        else if(boot_status == SW2_PRESSED) {
+            write_log_message(curr_state, "Reboot or power cut off detected during PILL DISPENSING");
+            // Print last saved step
+            steps_per_revolution = read_steps_per_revolution_from_eeprom();
+            if (steps_per_revolution == 0xFFFF) {  // Assuming 0xFFFF means no step has been saved
+                printf("No previous step saved.\n");
+            }else{
+                printf("Total steps per revolution for last round: %u\n", steps_per_revolution);
+            }
 
-        eeprom_read(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
-        recovery_calib(last_day_dispensed, steps_per_revolution/(DAYS+1));
-        return SW2_PRESSED;
+            eeprom_read(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
+            recovery_calib(last_day_dispensed, steps_per_revolution);
+            return SW2_PRESSED;
+        }
     }
 
-    boot_status = UN_BOOT;
-    eeprom_write(ADDRESS_BOOT_STATUS, &boot_status, 1);
-    //read_step_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
-    eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
     return INITIAL_STATE;
+}
+
+void set_boot(int state) {
+        boot_status = state;
+        eeprom_write(ADDRESS_BOOT_STATUS, &boot_status, 1);
 }
