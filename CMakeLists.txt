@@ -28,6 +28,8 @@ add_executable(${PROJECT_NAME}
     main.c
         eeprom_log.c
         eeprom_log.h
+        lora_connect.c
+        lora_connect.h
 )
 
 # Create map/bin/hex/uf2 files

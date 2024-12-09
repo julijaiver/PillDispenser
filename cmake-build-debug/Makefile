@@ -1435,6 +1435,30 @@ eeprom_log.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/eeprom_log.c.s
 .PHONY : eeprom_log.c.s
 
+lora_connect.obj: lora_connect.c.obj
+.PHONY : lora_connect.obj
+
+# target to build an object file
+lora_connect.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/lora_connect.c.obj
+.PHONY : lora_connect.c.obj
+
+lora_connect.i: lora_connect.c.i
+.PHONY : lora_connect.i
+
+# target to preprocess a source file
+lora_connect.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/lora_connect.c.i
+.PHONY : lora_connect.c.i
+
+lora_connect.s: lora_connect.c.s
+.PHONY : lora_connect.s
+
+# target to generate assembly for a file
+lora_connect.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/lora_connect.c.s
+.PHONY : lora_connect.c.s
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -1627,6 +1651,9 @@ help:
 	@echo ... eeprom_log.obj
 	@echo ... eeprom_log.i
 	@echo ... eeprom_log.s
+	@echo ... lora_connect.obj
+	@echo ... lora_connect.i
+	@echo ... lora_connect.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

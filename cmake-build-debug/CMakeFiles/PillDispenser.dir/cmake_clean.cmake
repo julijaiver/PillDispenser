@@ -104,6 +104,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj.d"
   "CMakeFiles/PillDispenser.dir/eeprom_log.c.obj"
   "CMakeFiles/PillDispenser.dir/eeprom_log.c.obj.d"
+  "CMakeFiles/PillDispenser.dir/lora_connect.c.obj"
+  "CMakeFiles/PillDispenser.dir/lora_connect.c.obj.d"
   "CMakeFiles/PillDispenser.dir/main.c.obj"
   "CMakeFiles/PillDispenser.dir/main.c.obj.d"
   "PillDispenser.elf"

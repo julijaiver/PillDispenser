@@ -21,48 +21,15 @@ bool validate_crc(uint8_t *data_buffer, size_t buffer_len) {
     return true;
 }
 
-bool write_byte_to_eeprom(uint16_t address, uint8_t *data, size_t data_len) {
-    uint8_t addr_buf[2];
-    addr_buf[0] = (address >> 8) & 0xff;
-    addr_buf[1] = (address & 0xff);
-
-    uint8_t data_buf[data_len + 2];
-    data_buf[0] = addr_buf[0];
-    data_buf[1] = addr_buf[1];
-    memcpy(&data_buf[2], data, data_len);
-
-    uint len = (sizeof(data_buf) / sizeof(data_buf[0]));
-
-    int result = i2c_write_blocking(i2c0, EEPROM_ADDRESS, data_buf, len, false);
-
-    return result == len;
-}
-
 bool write_log_to_eeprom(const uint8_t *message, size_t message_len) {
-    uint16_t log_addr = 0;
+    uint16_t log_addr;
     /*if (!read_from_eeprom(MAX_LOG_ADDRESS + BUFFER_SIZE, (uint8_t *) &log_addr, sizeof(log_addr))) {
         log_addr = 0;
     }*/
-    bool found_empty_address = false;
-    for (uint16_t i = 0; i <= MAX_LOG_ADDRESS; i+=BUFFER_SIZE) {
-        uint8_t read_data[BUFFER_SIZE];
-        if (read_from_eeprom(i, read_data, sizeof(read_data))) {
-            if (read_data[0] == 0) {
-                log_addr = i;
-                found_empty_address = true;
-                break;
-            }
-        }
-    }
-    if (!found_empty_address) {
+    if (!log_empty(&log_addr)) {
         delete_eeprom_log();
         log_addr = 0;
     }
-
-    // Address buffer specified in the beginning of whole data buffer
-    uint8_t addr_buf[2] = {0};
-    addr_buf[0] = (log_addr >> 8) & 0xff;
-    addr_buf[1] = (log_addr & 0xff);
 
     // Adding message to message buffer and terminating with null
     uint8_t log_message_buf[BUFFER_SIZE] = {0};
@@ -71,15 +38,12 @@ bool write_log_to_eeprom(const uint8_t *message, size_t message_len) {
 
     // Calculating crc and adding to messge buffer
     uint16_t crc = crc16(log_message_buf, BUFFER_SIZE-2);
-    log_message_buf[message_len+1] = (uint8_t)(crc >> 8);
-    log_message_buf[message_len+2] = (uint8_t) (crc & 0xff);
+    log_message_buf[BUFFER_SIZE-2] = (uint8_t)(crc >> 8);
+    log_message_buf[BUFFER_SIZE-1] = (uint8_t) (crc & 0xff);
 
-    uint8_t data_buf[BUFFER_SIZE + 2];
-    data_buf[0] = addr_buf[0];
-    data_buf[1] = addr_buf[1];
-    memcpy(&data_buf[2], log_message_buf, BUFFER_SIZE);
-
-    int result = i2c_write_blocking(i2c0, EEPROM_ADDRESS, data_buf, BUFFER_SIZE+2, false);
+    if (!eeprom_write(log_addr, log_message_buf, BUFFER_SIZE)) {
+        return false;
+    }
 
     log_addr += BUFFER_SIZE;
     if (log_addr > MAX_LOG_ADDRESS) {
@@ -87,9 +51,20 @@ bool write_log_to_eeprom(const uint8_t *message, size_t message_len) {
         log_addr = 0;
     }
 
-    write_byte_to_eeprom(MAX_LOG_ADDRESS + BUFFER_SIZE, (uint8_t *)&log_addr, sizeof(log_addr));
+    eeprom_write(MAX_LOG_ADDRESS + BUFFER_SIZE, (uint8_t *)&log_addr, sizeof(log_addr));
+    return true;
+}
 
-    return result == BUFFER_SIZE + 2;
+bool eeprom_write(uint16_t address, uint8_t *data, size_t data_len) {
+    uint8_t addr_buf[2] = {((address >> 8) & 0xff), (address & 0xff)};
+    uint8_t data_buf[data_len + 2];
+
+    memcpy(data_buf, addr_buf, sizeof(addr_buf));
+    memcpy(&data_buf[2], data, data_len);
+
+    int result = i2c_write_blocking(i2c0, EEPROM_ADDRESS, data_buf, data_len+2, false);
+    sleep_ms(5);  // Not sure if sleep is needed? Maybe just check if it was written
+    return result == data_len + 2;
 }
 
 void write_log_message(uint8_t *message_array, const char *message_content) {
@@ -102,25 +77,17 @@ void write_log_message(uint8_t *message_array, const char *message_content) {
     }
 }
 
-bool read_from_eeprom(uint16_t address, uint8_t *data, size_t data_len) {
-    uint8_t addr_buf[2];
-    addr_buf[0] = (address >> 8) & 0xff;
-    addr_buf[1] = (address & 0xff);
-    uint len = (sizeof(addr_buf) / sizeof(addr_buf[0]));
-
-    if (i2c_write_blocking(i2c0, EEPROM_ADDRESS, addr_buf, len, true) != len) {
+bool eeprom_read(uint16_t address, uint8_t *data, size_t data_len) {
+    uint8_t addr_buf[2] = {((address >> 8) & 0xff), (address & 0xff)};
+    if (i2c_write_blocking(i2c0, EEPROM_ADDRESS, addr_buf, sizeof(addr_buf), true) != sizeof(addr_buf)) {
         return false;
     }
-
-    if (i2c_read_blocking(i2c0, EEPROM_ADDRESS, data, data_len, false) != data_len) {
-        return false;
-    }
-    return true;
+    return i2c_read_blocking(i2c0, EEPROM_ADDRESS, data, data_len, false) == data_len;
 }
 
 uint16_t read_log_addr_from_eeprom(void) {
     uint16_t  log_addr;
-    if (!read_from_eeprom(MAX_LOG_ADDRESS + BUFFER_SIZE, (uint8_t *) &log_addr, sizeof(log_addr))) {
+    if (!eeprom_read(MAX_LOG_ADDRESS + BUFFER_SIZE, (uint8_t *) &log_addr, sizeof(log_addr))) {
         return 0;
     }
     return log_addr;
@@ -130,17 +97,17 @@ void print_eeprom_logs(void) {
     for (uint16_t i = 0; i <= MAX_LOG_ADDRESS; i+=BUFFER_SIZE) {
         uint8_t read_data[BUFFER_SIZE];
 
-        if (read_from_eeprom(i, read_data, sizeof(read_data))) {
+        if (eeprom_read(i, read_data, sizeof(read_data))) {
             if (read_data[0] != 0) {
                 if (read_data[BUFFER_SIZE-3] == 0) {
-                    /*if (validate_crc(read_data, BUFFER_SIZE)) {
+                    if (validate_crc(read_data, BUFFER_SIZE)) {
                         printf("CRC OK\n");
                         /*printf("Unprocessed log data at address 0x%04x: \n", i);
                         for (size_t j = 0; j < BUFFER_SIZE; ++j) {
                             printf("%02x ", read_data[j]);
                         }
-                        printf("\n");
-                    } else printf("CRC ERROR\n"); */
+                        printf("\n");*/
+                    } else printf("CRC ERROR\n");
                     char *message_read = (char *) read_data;
                     printf("Log message at address 0x%04x: %s\n", i, message_read);
                     //printf("\n");
@@ -153,8 +120,21 @@ void print_eeprom_logs(void) {
     }
 }
 
+bool log_empty(uint16_t *log_addr) {
+    for (uint16_t i = 0; i <= MAX_LOG_ADDRESS; i+=BUFFER_SIZE) {
+        uint8_t read_data[BUFFER_SIZE];
+        if (eeprom_read(i, read_data, sizeof(read_data))) {
+            if (read_data[0] == 0) {
+                *log_addr = i;
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 void delete_eeprom_log(void) {
     for (uint16_t i = 0; i <= MAX_LOG_ADDRESS; i+=BUFFER_SIZE) {
-        write_byte_to_eeprom(i, 0, 1);
+        eeprom_write(i, 0, 1);
     }
 }

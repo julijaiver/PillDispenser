@@ -26,7 +26,8 @@ void recovery_calib(int current_compartment, int compartment_steps);
 uint16_t read_step_from_eeprom();
 int check_power_cut();
 
-#define BAUDRATE 100000   // 100kHz baudrate for eeprom
+#define UART_BAUDRATE 9600
+#define I2C_BAUDRATE 100000   // 100kHz baudrate for eeprom
 #define HIGH 1
 #define LOW 0
 #define TOTAL_STEP 8
@@ -44,6 +45,8 @@ int check_power_cut();
 #define SW_1 8
 #define SW_2 7
 #define LED 22
+#define TX_PIN 4
+#define RX_PIN 5
 #define BLINK_WAIT 500
 #define DAYS 7
 #define PIEZO_SENSOR 27
@@ -53,7 +56,7 @@ int check_power_cut();
 #define LOG_MESSAGE_SIZE 61
 #define ADDRESS_FOR_DAY 0x0802
 #define ADDRESS_FOR_STEP 0x0803
-#define ADDRESS_BOOT_STATUS 0X0800
+#define ADDRESS_BOOT_STATUS 0X0806
 #define BOOT 1
 #define UN_BOOT 0
 
@@ -132,6 +135,11 @@ int main() {
     initialize_button(PIEZO_SENSOR);
     initialize_led(LED);
 
+    // Set up uart
+    uart_init(uart1, UART_BAUDRATE);
+    gpio_set_function(TX_PIN, GPIO_FUNC_UART);
+    gpio_set_function(RX_PIN, GPIO_FUNC_UART);
+
     // Initialize eeprom
     initialize_i2c();
 
@@ -155,9 +163,10 @@ int main() {
     uint8_t curr_state[LOG_MESSAGE_SIZE];
     // Initial Boot message upon start
     //write_log_message(curr_state, "Boot");
+    print_eeprom_logs();
 
     //read_step_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
-    read_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
     if(boot_status == BOOT || boot_status == UN_BOOT) {
         state = check_power_cut();
         printf("State: %d\n", state);
@@ -181,7 +190,7 @@ int main() {
                 else {
                     printf("Calibration done already for this round.\n");
                 }
-                print_eeprom_logs();
+                //print_eeprom_logs();
                 state = LED_ON;
             break;
 
@@ -195,7 +204,7 @@ int main() {
                 printf("SW2_PRESSED\n");
                 while(boot_status !=BOOT) {
                     boot_status = BOOT;
-                    write_byte_to_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+                    eeprom_write(ADDRESS_BOOT_STATUS, &boot_status, 1);
                     read_step_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
                     printf("Boot status: %d\n", boot_status);
                 }
@@ -204,19 +213,26 @@ int main() {
                     day = last_day_dispensed;
                 }
                 for (day; day < DAYS; day++) {
+                    char message[LOG_MESSAGE_SIZE];
                     rotate_one_compartment();
                     if (detect_pill()) {
-                        printf("Pill detected for day %d\n", day + 1);
+                        sprintf(message, "Pill detected for day %d", day + 1);
+                        write_log_message(curr_state, message);
+                        printf("%s\n", message);
+
                     } else {
                         //led blinks when no pill detected
                         for (int i = 0; i < 5; ++i) {
                             blink_led(LED, 100);
                         }
-                        printf("Pill NOT detected for day %d\n", day + 1);
+                        sprintf(message, "Pill NOT detected for day %d", day + 1);
+                        write_log_message(curr_state, message);
+                        printf("%s\n", message);
+
                     }
                     // Saving last day dispensed
                     last_day_dispensed = day + 1;
-                    write_byte_to_eeprom(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
+                    eeprom_write(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
                     printf("boot status: %d\n", boot_status);
                     printf("Pill dispensed for day %d\n", last_day_dispensed);
                     sleep_ms(3000);
@@ -253,7 +269,7 @@ int main() {
 void initialize_i2c(void) {
     const int sda = 16;
     const int scl = 17;
-    i2c_init(i2c0, BAUDRATE);
+    i2c_init(i2c0, I2C_BAUDRATE);
     gpio_set_function(sda, GPIO_FUNC_I2C);
     gpio_set_function(scl, GPIO_FUNC_I2C);
     gpio_pull_up(sda);
@@ -281,13 +297,13 @@ void rotate_one_compartment() {
         uint16_t current_position = i;
         move_one_step();
 
+        /*
         //Save step to eeprom
         uint8_t msb = (uint8_t) ((current_position >> 8) & 0xFF);
         uint8_t lsb = (uint8_t) (current_position & 0xFF);
 
-        write_byte_to_eeprom(ADDRESS_FOR_STEP, &msb, sizeof(msb));
-        write_byte_to_eeprom(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb));
-
+        eeprom_write(ADDRESS_FOR_STEP, &msb, sizeof(msb));
+        eeprom_write(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb)); */
     }
 }
 
@@ -476,15 +492,15 @@ void recovery_calib(int current_compartment, int compartment_steps) {
 uint16_t read_step_from_eeprom() {
     uint8_t msb, lsb;
 
-    read_from_eeprom(ADDRESS_FOR_STEP, &msb, sizeof(msb));
-    read_from_eeprom(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb));
+    eeprom_read(ADDRESS_FOR_STEP, &msb, sizeof(msb));
+    eeprom_read(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb));
 
     uint16_t step = ((uint16_t)msb << 8) | lsb;
     return step;
 }
 
 int check_power_cut(){
-    read_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
     printf("boot_status = %d\n", boot_status);
     if (boot_status == BOOT) {
         printf("Reboot or power cut off detected. \n");
@@ -496,14 +512,14 @@ int check_power_cut(){
             printf("Stopped at step %u\n", last_step);
         }
 
-        read_from_eeprom(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
+        eeprom_read(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
         recovery_calib(last_day_dispensed, steps_per_revolution/(DAYS+1));
         return SW2_PRESSED;
     }
 
     boot_status = UN_BOOT;
-    write_byte_to_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    eeprom_write(ADDRESS_BOOT_STATUS, &boot_status, 1);
     //read_step_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
-    read_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
     return INITIAL_STATE;
 }
