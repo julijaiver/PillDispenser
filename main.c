@@ -26,7 +26,8 @@ void recovery_calib(int current_compartment, int compartment_steps);
 uint16_t read_step_from_eeprom();
 int check_power_cut();
 
-#define BAUDRATE 100000   // 100kHz baudrate for eeprom
+#define UART_BAUDRATE 9600
+#define I2C_BAUDRATE 100000   // 100kHz baudrate for eeprom
 #define HIGH 1
 #define LOW 0
 #define TOTAL_STEP 8
@@ -44,6 +45,8 @@ int check_power_cut();
 #define SW_1 8
 #define SW_2 7
 #define LED 22
+#define TX_PIN 4
+#define RX_PIN 5
 #define BLINK_WAIT 500
 #define DAYS 7
 #define PIEZO_SENSOR 27
@@ -131,6 +134,11 @@ int main() {
     initialize_button(SW_2);
     initialize_button(PIEZO_SENSOR);
     initialize_led(LED);
+
+    // Set up uart
+    uart_init(uart1, UART_BAUDRATE);
+    gpio_set_function(TX_PIN, GPIO_FUNC_UART);
+    gpio_set_function(RX_PIN, GPIO_FUNC_UART);
 
     // Initialize eeprom
     initialize_i2c();
@@ -261,7 +269,7 @@ int main() {
 void initialize_i2c(void) {
     const int sda = 16;
     const int scl = 17;
-    i2c_init(i2c0, BAUDRATE);
+    i2c_init(i2c0, I2C_BAUDRATE);
     gpio_set_function(sda, GPIO_FUNC_I2C);
     gpio_set_function(scl, GPIO_FUNC_I2C);
     gpio_pull_up(sda);
