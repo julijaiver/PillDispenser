@@ -155,6 +155,7 @@ int main() {
     uint8_t curr_state[LOG_MESSAGE_SIZE];
     // Initial Boot message upon start
     //write_log_message(curr_state, "Boot");
+    print_eeprom_logs();
 
     //read_step_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
     eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
@@ -181,7 +182,7 @@ int main() {
                 else {
                     printf("Calibration done already for this round.\n");
                 }
-                print_eeprom_logs();
+                //print_eeprom_logs();
                 state = LED_ON;
             break;
 
@@ -204,15 +205,22 @@ int main() {
                     day = last_day_dispensed;
                 }
                 for (day; day < DAYS; day++) {
+                    char message[LOG_MESSAGE_SIZE];
                     rotate_one_compartment();
                     if (detect_pill()) {
-                        printf("Pill detected for day %d\n", day + 1);
+                        sprintf(message, "Pill detected for day %d", day + 1);
+                        write_log_message(curr_state, message);
+                        printf("%s\n", message);
+
                     } else {
                         //led blinks when no pill detected
                         for (int i = 0; i < 5; ++i) {
                             blink_led(LED, 100);
                         }
-                        printf("Pill NOT detected for day %d\n", day + 1);
+                        sprintf(message, "Pill NOT detected for day %d", day + 1);
+                        write_log_message(curr_state, message);
+                        printf("%s\n", message);
+
                     }
                     // Saving last day dispensed
                     last_day_dispensed = day + 1;
@@ -281,13 +289,13 @@ void rotate_one_compartment() {
         uint16_t current_position = i;
         move_one_step();
 
+        /*
         //Save step to eeprom
         uint8_t msb = (uint8_t) ((current_position >> 8) & 0xFF);
         uint8_t lsb = (uint8_t) (current_position & 0xFF);
 
         eeprom_write(ADDRESS_FOR_STEP, &msb, sizeof(msb));
-        eeprom_write(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb));
-
+        eeprom_write(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb)); */
     }
 }
 
