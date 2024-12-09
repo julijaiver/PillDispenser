@@ -157,7 +157,7 @@ int main() {
     //write_log_message(curr_state, "Boot");
 
     //read_step_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
-    read_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
     if(boot_status == BOOT || boot_status == UN_BOOT) {
         state = check_power_cut();
         printf("State: %d\n", state);
@@ -195,7 +195,7 @@ int main() {
                 printf("SW2_PRESSED\n");
                 while(boot_status !=BOOT) {
                     boot_status = BOOT;
-                    write_byte_to_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+                    eeprom_write(ADDRESS_BOOT_STATUS, &boot_status, 1);
                     read_step_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
                     printf("Boot status: %d\n", boot_status);
                 }
@@ -216,7 +216,7 @@ int main() {
                     }
                     // Saving last day dispensed
                     last_day_dispensed = day + 1;
-                    write_byte_to_eeprom(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
+                    eeprom_write(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
                     printf("boot status: %d\n", boot_status);
                     printf("Pill dispensed for day %d\n", last_day_dispensed);
                     sleep_ms(3000);
@@ -285,8 +285,8 @@ void rotate_one_compartment() {
         uint8_t msb = (uint8_t) ((current_position >> 8) & 0xFF);
         uint8_t lsb = (uint8_t) (current_position & 0xFF);
 
-        write_byte_to_eeprom(ADDRESS_FOR_STEP, &msb, sizeof(msb));
-        write_byte_to_eeprom(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb));
+        eeprom_write(ADDRESS_FOR_STEP, &msb, sizeof(msb));
+        eeprom_write(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb));
 
     }
 }
@@ -476,15 +476,15 @@ void recovery_calib(int current_compartment, int compartment_steps) {
 uint16_t read_step_from_eeprom() {
     uint8_t msb, lsb;
 
-    read_from_eeprom(ADDRESS_FOR_STEP, &msb, sizeof(msb));
-    read_from_eeprom(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb));
+    eeprom_read(ADDRESS_FOR_STEP, &msb, sizeof(msb));
+    eeprom_read(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb));
 
     uint16_t step = ((uint16_t)msb << 8) | lsb;
     return step;
 }
 
 int check_power_cut(){
-    read_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
     printf("boot_status = %d\n", boot_status);
     if (boot_status == BOOT) {
         printf("Reboot or power cut off detected. \n");
@@ -496,14 +496,14 @@ int check_power_cut(){
             printf("Stopped at step %u\n", last_step);
         }
 
-        read_from_eeprom(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
+        eeprom_read(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
         recovery_calib(last_day_dispensed, steps_per_revolution/(DAYS+1));
         return SW2_PRESSED;
     }
 
     boot_status = UN_BOOT;
-    write_byte_to_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    eeprom_write(ADDRESS_BOOT_STATUS, &boot_status, 1);
     //read_step_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
-    read_from_eeprom(ADDRESS_BOOT_STATUS, &boot_status, 1);
+    eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
     return INITIAL_STATE;
 }

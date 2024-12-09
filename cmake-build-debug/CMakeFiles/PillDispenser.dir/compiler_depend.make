@@ -2282,6 +2282,7 @@ CMakeFiles/PillDispenser.dir/main.c.obj: C:/Users/Lenovo/Desktop/Metropolia/Embe
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
   generated/pico_base/pico/config_autogen.h \
   generated/pico_base/pico/version.h \
+  C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/eeprom_log.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_base_headers/include/pico.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_base_headers/include/pico/assert.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_base_headers/include/pico/config.h \
@@ -2294,6 +2295,7 @@ CMakeFiles/PillDispenser.dir/main.c.obj: C:/Users/Lenovo/Desktop/Metropolia/Embe
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h \
+  C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/i2c.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h \
@@ -2302,6 +2304,7 @@ CMakeFiles/PillDispenser.dir/main.c.obj: C:/Users/Lenovo/Desktop/Metropolia/Embe
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
+  C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/io_bank0.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/m0plus.h \
@@ -2316,6 +2319,7 @@ CMakeFiles/PillDispenser.dir/main.c.obj: C:/Users/Lenovo/Desktop/Metropolia/Embe
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/include/pico/platform/cpu_regs.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
+  C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_resets/include/hardware/resets.h \
   C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
