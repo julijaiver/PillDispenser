@@ -53,7 +53,7 @@ int check_power_cut();
 #define LOG_MESSAGE_SIZE 61
 #define ADDRESS_FOR_DAY 0x0802
 #define ADDRESS_FOR_STEP 0x0803
-#define ADDRESS_BOOT_STATUS 0X0800
+#define ADDRESS_BOOT_STATUS 0X0806
 #define BOOT 1
 #define UN_BOOT 0
 
