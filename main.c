@@ -28,7 +28,6 @@ uint16_t read_steps_per_revolution_from_eeprom();
 void write_steps_per_revolution_to_eeprom(uint16_t revolution);
 int check_power_cut();
 void set_boot(int state);
-void initialize_lora();
 
 
 #define UART_BAUDRATE 9600
@@ -153,9 +152,11 @@ int main() {
     stdio_init_all();
 
     //Initialize lora and connect
-    initialize_lora();
-
-
+    bool lora_joined = initialize_lora();
+    char lora_response[INPUT_SIZE];
+    if (lora_joined) {
+        send_command_to_lora(lora_response, "AT+MSG=\"Boot\"\n", 30000000);
+    }
     //Initialize queue
     queue_init(&events, sizeof(Event), MAX_QUEUE);
 
@@ -215,7 +216,9 @@ int main() {
                     day = last_day_dispensed;
                 }
                 for (day; day < DAYS; day++) {
+                    sleep_ms(3000);
                     char message[LOG_MESSAGE_SIZE];
+                    check_pill_dispensed();
                     rotate_one_compartment();
                     if (detect_pill()) {
                         sprintf(message, "Pill detected for day %d", day + 1);
@@ -235,7 +238,7 @@ int main() {
                     // Saving last day dispensed
                     last_day_dispensed = day + 1;
                     eeprom_write(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
-                    sleep_ms(3000);
+                    //sleep_ms(3000);
                 }
                 print_eeprom_logs();
                 calibrated = false;
@@ -555,120 +558,3 @@ void set_boot(int state) {
         eeprom_write(ADDRESS_BOOT_STATUS, &boot_status, 1);
 }
 
-//function for initializing and connecting lora
-void initialize_lora() {
-    uint state = 0;
-    uint retries = 0;
-    const int max_retries = 3;
-    char response[INPUT_SIZE] = {0};
-    bool response_received = false;
-    bool joined_network = false;
-    printf("Initializing lora\n");
-
-    while (state != 9) {  // Exit when initialization is complete
-        switch (state) {
-            case 0: // Check if the LoRa module is responsive
-                if (send_command_to_lora(response, "AT\n", 500000)) {
-                    printf("Connected to LoRa module: %s\n", response);
-                    state = 1;
-                } else {
-                    printf("Module not responding.\n");
-                    retries++;
-                    if (retries >= max_retries) return; // Exit after max retries
-                }
-                break;
-
-            case 1: // Get firmware version
-                if (send_command_to_lora(response, "AT+VER\n", 500000)) {
-                    printf("LoRa version: %s\n", response);
-                    state = 2;
-                } else {
-                    printf("Failed to get LoRa version.\n");
-                    state = 0;
-                }
-                break;
-
-            case 2: // Get DevEui
-                if (send_command_to_lora(response, "AT+ID=DEVEUI\n", 500000)) {
-                    printf("DevEui: %s\n", response);
-                    state = 3;
-                } else {
-                    printf("Failed to get DevEui.\n");
-                    state = 0;
-                }
-                break;
-
-            case 3: // Set mode to LWOTAA
-                if (send_command_to_lora(response, "AT+MODE=LWOTAA\n", 500000)) {
-                    printf("Mode set: %s\n", response);
-                    state = 4;
-                } else {
-                    printf("Failed to set mode.\n");
-                    state = 0;
-                }
-                break;
-
-            case 4: // Set AppKey
-                if (send_command_to_lora(response, "AT+KEY=APPKEY,\"5C43DA79B99E52403BCE20FB9770DC42\"\n", 500000)) {
-                    printf("AppKey configured: %s\n", response);
-                    state = 5;
-                } else {
-                    printf("Failed to configure AppKey.\n");
-                    state = 0;
-                }
-                break;
-
-            case 5: // Set Class A
-                if (send_command_to_lora(response, "AT+CLASS=A\n", 500000)) {
-                    printf("Class A mode set: %s\n", response);
-                    state = 6;
-                } else {
-                    printf("Failed to set Class A mode.\n");
-                    state = 0;
-                }
-                break;
-
-            case 6: // Set port
-                if (send_command_to_lora(response, "AT+PORT=8\n", 500000)) {
-                    printf("Port set to 8: %s\n", response);
-                    state = 7;
-                } else {
-                    printf("Failed to set port.\n");
-                    state = 0;
-                }
-                break;
-
-            case 7: // Attempt to join the network
-                retries = 0;
-                while (retries < max_retries) {
-                    if (send_command_to_lora(response, "AT+JOIN\n", 20000000)) {
-                        printf("Successfully joined LoRa network: %s\n", response);
-                        joined_network = true;
-                        state = 8;
-                        break;
-                    } else {
-                        printf("Join attempt %d failed.\n", retries + 1);
-                        retries++;
-                    }
-                }
-                if (!joined_network) {
-                    printf("Failed to join network after %d retries.\n", max_retries);
-                    state = 0;
-                }
-                break;
-
-            case 8: // Send a test message after join
-                if (send_command_to_lora(response, "AT+MSG=\"Hello, LoRa\"\n", 500000)) {
-                    printf("Test message sent successfully: %s\n", response);
-                } else {
-                    printf("Failed to send test message.\n");
-                }
-                state = 9; // Initialization complete
-                break;
-
-            default:
-                printf("Invalid state encountered.\n");
-                return;
-        }
-    }
-}

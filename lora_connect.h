@@ -12,6 +12,7 @@ void send_to_uart(uart_inst_t *uart, char *string);
 bool send_command_to_lora(char *response, const char *command, uint32_t timeout) ;
 bool read_string_from_uart(uart_inst_t *uart, uint32_t time_us, char *str);
 void process_string(char *str);
+bool initialize_lora();
 
 
 #endif //LORA_CONNECT_H
