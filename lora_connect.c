@@ -35,17 +35,18 @@ void send_to_uart(uart_inst_t *uart, char *string) {
     uart_write_blocking(uart, string, strlen((char *)string));
 }
 
-bool send_command_to_lora(uint8_t *send, char *response, const char *command, uint32_t timeout) {
-    strncpy((char *)send, command, INPUT_SIZE);
-    send_to_uart(uart1, send);
+bool send_command_to_lora(char *response, const char *command, uint32_t timeout) {
+    send_to_uart(uart1, command);
     if (read_string_from_uart(uart1, timeout, response)) {
-        printf("Mode response: %s\n", response);
+        printf("Response: %s\n", response);
         return true;
     } else {
         printf("Module stopped responding\n");
         return false;
     }
 }
+
+
 
 bool read_string_from_uart(uart_inst_t *uart, uint32_t time_us, char *str) {
     memset(str, 0, sizeof(str));
@@ -68,4 +69,29 @@ bool read_string_from_uart(uart_inst_t *uart, uint32_t time_us, char *str) {
         }
     }
     return false;
+}
+
+void process_string(char *string) {
+    char *read_ptr = string;
+    char *write_ptr = string;
+    int found_comma = 0;
+
+    while (*read_ptr != '\0') {
+        if (!found_comma) {
+            if (*read_ptr == ',') {
+                found_comma = 1;
+            }
+        } else {
+            if (*read_ptr != ' ' && *read_ptr != ':') {
+                *write_ptr++ = *read_ptr;
+            }
+        }
+        read_ptr++;
+    }
+    *write_ptr = '\0';
+
+    int len = strlen(string);
+    for (int i = 0; i < len; ++i) {
+        string[i] = tolower(string[i]);
+    }
 }

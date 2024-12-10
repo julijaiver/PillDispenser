@@ -52,10 +52,10 @@ RM = "C:\Program Files\JetBrains\CLion 2024.2.0.1\bin\cmake\win\x64\bin\cmake.ex
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser
+CMAKE_SOURCE_DIR = D:\Study\Year2\period2\C_project\pill_dispenser
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug
+CMAKE_BINARY_DIR = D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug
 
 # Utility rule file for tinyusb_pico_pio_usb_usb_rx_pio_h.
 
@@ -67,9 +67,9 @@ include pico-sdk/src/rp2_common/tinyusb/CMakeFiles/tinyusb_pico_pio_usb_usb_rx_p
 
 pico-sdk/src/rp2_common/tinyusb/CMakeFiles/tinyusb_pico_pio_usb_usb_rx_pio_h: pico-sdk/src/rp2_common/tinyusb/usb_rx.pio.h
 
-pico-sdk/src/rp2_common/tinyusb/usb_rx.pio.h: C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/lib/tinyusb/hw/mcu/raspberry_pi/Pico-PIO-USB/src/usb_rx.pio
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating usb_rx.pio.h"
-	cd /d C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\tinyusb && ..\..\..\..\pioasm-install\pioasm\pioasm.exe -o c-sdk -v 0 C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/lib/tinyusb/hw/mcu/raspberry_pi/Pico-PIO-USB/src/usb_rx.pio C:/Users/Lenovo/Desktop/Metropolia/Embedded24.1/C/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/tinyusb/usb_rx.pio.h
+pico-sdk/src/rp2_common/tinyusb/usb_rx.pio.h: D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/lib/tinyusb/hw/mcu/raspberry_pi/Pico-PIO-USB/src/usb_rx.pio
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating usb_rx.pio.h"
+	cd /d D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\tinyusb && D:\Study\Year2\period2\C_project\PicoSDKv1.5.0\pico-sdk-tools\pioasm.exe -o c-sdk D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/lib/tinyusb/hw/mcu/raspberry_pi/Pico-PIO-USB/src/usb_rx.pio D:/Study/Year2/period2/C_project/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/tinyusb/usb_rx.pio.h
 
 tinyusb_pico_pio_usb_usb_rx_pio_h: pico-sdk/src/rp2_common/tinyusb/CMakeFiles/tinyusb_pico_pio_usb_usb_rx_pio_h
 tinyusb_pico_pio_usb_usb_rx_pio_h: pico-sdk/src/rp2_common/tinyusb/usb_rx.pio.h
@@ -81,10 +81,10 @@ pico-sdk/src/rp2_common/tinyusb/CMakeFiles/tinyusb_pico_pio_usb_usb_rx_pio_h.dir
 .PHONY : pico-sdk/src/rp2_common/tinyusb/CMakeFiles/tinyusb_pico_pio_usb_usb_rx_pio_h.dir/build
 
 pico-sdk/src/rp2_common/tinyusb/CMakeFiles/tinyusb_pico_pio_usb_usb_rx_pio_h.dir/clean:
-	cd /d C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\tinyusb && $(CMAKE_COMMAND) -P CMakeFiles\tinyusb_pico_pio_usb_usb_rx_pio_h.dir\cmake_clean.cmake
+	cd /d D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\tinyusb && $(CMAKE_COMMAND) -P CMakeFiles\tinyusb_pico_pio_usb_usb_rx_pio_h.dir\cmake_clean.cmake
 .PHONY : pico-sdk/src/rp2_common/tinyusb/CMakeFiles/tinyusb_pico_pio_usb_usb_rx_pio_h.dir/clean
 
 pico-sdk/src/rp2_common/tinyusb/CMakeFiles/tinyusb_pico_pio_usb_usb_rx_pio_h.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser C:\Users\Lenovo\Desktop\Metropolia\bin\PicoSDKv1.5.0\pico-sdk\src\rp2_common\tinyusb C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\tinyusb C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_rx_pio_h.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Study\Year2\period2\C_project\pill_dispenser D:\Study\Year2\period2\C_project\PicoSDKv1.5.0\pico-sdk\src\rp2_common\tinyusb D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\tinyusb D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_rx_pio_h.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : pico-sdk/src/rp2_common/tinyusb/CMakeFiles/tinyusb_pico_pio_usb_usb_rx_pio_h.dir/depend
 
