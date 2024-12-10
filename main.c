@@ -28,7 +28,7 @@ uint16_t read_steps_per_revolution_from_eeprom();
 void write_steps_per_revolution_to_eeprom(uint16_t revolution);
 int check_power_cut();
 void set_boot(int state);
-
+void remove_events();
 
 #define UART_BAUDRATE 9600
 #define I2C_BAUDRATE 100000   // 100kHz baudrate for eeprom
@@ -62,6 +62,7 @@ void set_boot(int state);
 #define ADDRESS_FOR_STEP 0x0803
 #define ADDRESS_BOOT_STATUS 0X0806
 #define UN_BOOT (-1)
+#define TIME_SLEEP 3000
 
 typedef enum {
     INITIAL_STATE = 0,
@@ -216,9 +217,10 @@ int main() {
                     day = last_day_dispensed;
                 }
                 for (day; day < DAYS; day++) {
-                    sleep_ms(3000);
+                    sleep_ms(TIME_SLEEP);
                     char message[LOG_MESSAGE_SIZE];
-                    check_pill_dispensed();
+                    //check_pill_dispensed();
+                    remove_events();
                     rotate_one_compartment();
                     if (detect_pill()) {
                         sprintf(message, "Pill detected for day %d", day + 1);
@@ -238,7 +240,7 @@ int main() {
                     // Saving last day dispensed
                     last_day_dispensed = day + 1;
                     eeprom_write(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
-                    //sleep_ms(3000);
+                    //sleep_ms(TIME_SLEEP);
                 }
                 print_eeprom_logs();
                 calibrated = false;
@@ -558,3 +560,7 @@ void set_boot(int state) {
         eeprom_write(ADDRESS_BOOT_STATUS, &boot_status, 1);
 }
 
+void remove_events() {
+    Event current_event;
+    while (queue_try_remove(&events, &current_event));
+}
