@@ -192,9 +192,9 @@ int main() {
                 set_boot(SW1_PRESSED);
                 printf("SW1_PRESSED\n");
                 if(!calibrated) {
-                    send_message_to_lora(lora_response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
                     write_log_message(curr_state, "Calibrating");
                     perform_calib();
+                    send_message_to_lora(lora_response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
                     write_log_message(curr_state, "Device calibrated");
                     printf("Device calibrated.\n");
                     calibrated = true;
