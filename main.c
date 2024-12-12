@@ -4,6 +4,8 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <sys/unistd.h>
+
 #include "pico/util/queue.h"
 #include "pico/time.h"
 #include "eeprom_log.h"
@@ -228,7 +230,7 @@ int main() {
                         sprintf(message, "Pill detected for day %d", day + 1);
                         write_log_message(curr_state, message);
                         sprintf(at_message, "AT+MSG=\"Pill detected for day %d.\"\n", day + 1);
-                        send_command_to_lora(lora_response, at_message, MSG_TIMEOUT);
+                        send_message_to_lora(lora_response, at_message, MSG_TIMEOUT);
                         printf("%s\n", message);
 
                     } else {
@@ -239,7 +241,7 @@ int main() {
                         sprintf(message, "Pill NOT detected for day %d", day + 1);
                         sprintf(at_message, "AT+MSG=\"Pill not detected for day %d.\"\n", day + 1);
                         write_log_message(curr_state, message);
-                        send_command_to_lora(lora_response, at_message, MSG_TIMEOUT);
+                        send_message_to_lora(lora_response, at_message, MSG_TIMEOUT);
                         printf("%s\n", message);
 
                     }
@@ -249,12 +251,12 @@ int main() {
                     //sleep_ms(TIME_SLEEP);
                 }
                 print_eeprom_logs();
+                send_message_to_lora(lora_response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
                 calibrated = false;
                 last_day_dispensed = 0;
                 set_boot(UN_BOOT);
                 steps_per_revolution = 0;
                 delete_eeprom_log();
-                //send_message_to_lora(lora_response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
                 state = INITIAL_STATE;
                 break;
             }
