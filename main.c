@@ -192,11 +192,11 @@ int main() {
                 set_boot(SW1_PRESSED);
                 printf("SW1_PRESSED\n");
                 if(!calibrated) {
+                    send_message_to_lora(lora_response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
                     write_log_message(curr_state, "Calibrating");
                     perform_calib();
                     write_log_message(curr_state, "Device calibrated");
                     printf("Device calibrated.\n");
-                    send_message_to_lora(lora_response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
                     calibrated = true;
                 }
                 else {
@@ -228,9 +228,9 @@ int main() {
                     rotate_one_compartment();
                     if (detect_pill()) {
                         sprintf(message, "Pill detected for day %d", day + 1);
-                        write_log_message(curr_state, message);
                         sprintf(at_message, "AT+MSG=\"Pill detected for day %d.\"\n", day + 1);
                         send_message_to_lora(lora_response, at_message, MSG_TIMEOUT);
+                        write_log_message(curr_state, message);
                         printf("%s\n", message);
 
                     } else {
@@ -240,8 +240,8 @@ int main() {
                         }
                         sprintf(message, "Pill NOT detected for day %d", day + 1);
                         sprintf(at_message, "AT+MSG=\"Pill not detected for day %d.\"\n", day + 1);
-                        write_log_message(curr_state, message);
                         send_message_to_lora(lora_response, at_message, MSG_TIMEOUT);
+                        write_log_message(curr_state, message);
                         printf("%s\n", message);
 
                     }
