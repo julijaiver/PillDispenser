@@ -138,6 +138,7 @@ bool initialize_lora() {
     while (state != 9) {  // Exit when initialization is complete
         switch (state) {
             case 0: // Check if the LoRa module is responsive
+                sleep_ms(2000);
                 if (send_command_to_lora(response, "AT\n", 500000)) {
                     printf("Connected to LoRa module: %s\n", response);
                     state = 1;
