@@ -63,7 +63,7 @@ void remove_events();
 #define ADDRESS_FOR_DAY 0x0802
 #define ADDRESS_FOR_STEP 0x0803
 #define ADDRESS_BOOT_STATUS 0X0806
-#define UN_BOOT (-1)
+#define UN_BOOT 0
 #define TIME_SLEEP 3000
 
 typedef enum {
@@ -146,8 +146,6 @@ int main() {
     gpio_set_function(TX_PIN, GPIO_FUNC_UART);
     gpio_set_function(RX_PIN, GPIO_FUNC_UART);
 
-
-
     // Initialize eeprom
     initialize_i2c();
 
@@ -194,15 +192,15 @@ int main() {
                 if(!calibrated) {
                     write_log_message(curr_state, "Calibrating");
                     perform_calib();
+                    remove_events();
                     send_message_to_lora(lora_response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
                     write_log_message(curr_state, "Device calibrated");
-                    printf("Device calibrated.\n");
+                    printf("Device calibrated. Place the pills to the device.\n");
                     calibrated = true;
                 }
                 else {
                     printf("Calibration done already for this round.\n");
                 }
-                //print_eeprom_logs();
                 state = LED_ON;
             break;
 
@@ -220,7 +218,7 @@ int main() {
                 if(last_day_dispensed != 0) {
                     day = last_day_dispensed;
                 }
-                for (day; day < DAYS; day++) {
+                while (day < DAYS) {
                     char message[LOG_MESSAGE_SIZE];
                     char at_message[LOG_MESSAGE_SIZE];
                     //check_pill_dispensed();
@@ -243,12 +241,12 @@ int main() {
                         send_message_to_lora(lora_response, at_message, MSG_TIMEOUT);
                         write_log_message(curr_state, message);
                         printf("%s\n", message);
-
                     }
                     // Saving last day dispensed
                     last_day_dispensed = day + 1;
                     eeprom_write(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
                     sleep_ms(TIME_SLEEP);
+                    day++;
                 }
                 print_eeprom_logs();
                 send_message_to_lora(lora_response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
@@ -269,6 +267,8 @@ int main() {
                 case SW2_PRESSED:
                     if (state == LED_ON) {
                         state = SW2_PRESSED;
+                    }else {
+                        printf("Not calibrated yet.\n");
                     }
                 break;
                 default:
@@ -310,14 +310,6 @@ void rotate_one_compartment() {
     for (int i = 0; i< number; ++i) {
         //uint16_t current_position = i;
         move_one_step();
-
-        /*
-        //Save step to eeprom
-        uint8_t msb = (uint8_t) ((current_position >> 8) & 0xFF);
-        uint8_t lsb = (uint8_t) (current_position & 0xFF);
-
-        eeprom_write(ADDRESS_FOR_STEP, &msb, sizeof(msb));
-        eeprom_write(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb)); */
     }
 }
 
@@ -478,7 +470,7 @@ bool check_pill_dispensed(void) {
     return false;
 }
 
-//fucntion that turns off led
+//function that turns off led
 void led_off(int led) {
     gpio_put(led, false);
 }
@@ -523,30 +515,29 @@ void write_steps_per_revolution_to_eeprom(uint16_t revolution) {
     eeprom_write(ADDRESS_FOR_STEP + 1, &lsb, sizeof(lsb));
 }
 
+//function that checks reset or power cut off during running and react differently based on different state
 int check_power_cut(){
     eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
     if (boot_status != UN_BOOT) {
-        printf("Reboot or power cut off detected\n");
-        if(boot_status == INITIAL_STATE) {
-            write_log_message(curr_state, "Reboot or power cut off detected in INITIAL STATE");
-            return INITIAL_STATE;
-        }
-        else if(boot_status == SW1_PRESSED) {
-            write_log_message(curr_state, "Reboot or power cut off detected during CALIBRATION");
+        printf("Reset or power cut off detected during running\n");
+            if(boot_status == SW1_PRESSED) {
+            write_log_message(curr_state, "Reset or power cut off detected during CALIBRATION");
             if(read_steps_per_revolution_from_eeprom()!= 0) {
                 printf("Calibration complete\n");
                 return LED_ON;
             }
             return INITIAL_STATE;
         }
-        else if(boot_status == LED_ON) {
-            write_log_message(curr_state, "Reboot or power cut off detected during WAITING");
+
+        if(boot_status == LED_ON) {
+            write_log_message(curr_state, "Reset or power cut off detected during WAITING");
             steps_per_revolution = read_steps_per_revolution_from_eeprom();
             calibrated = true;
             return LED_ON;
         }
-        else if(boot_status == SW2_PRESSED) {
-            write_log_message(curr_state, "Reboot or power cut off detected during PILL DISPENSING");
+
+        if(boot_status == SW2_PRESSED) {
+            write_log_message(curr_state, "Reset or power cut off detected during PILL DISPENSING");
             // Print last saved step
             steps_per_revolution = read_steps_per_revolution_from_eeprom();
             if (steps_per_revolution == 0xFFFF) {  // Assuming 0xFFFF means no step has been saved
@@ -561,7 +552,6 @@ int check_power_cut(){
             return SW2_PRESSED;
         }
     }
-
     return INITIAL_STATE;
 }
 
@@ -574,4 +564,3 @@ void remove_events() {
     Event current_event;
     while (queue_try_remove(&events, &current_event));
 }
-
