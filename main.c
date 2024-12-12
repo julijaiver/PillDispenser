@@ -160,6 +160,7 @@ int main() {
     if (lora_joined) {
         send_command_to_lora(lora_response, "AT+MSG=\"Boot\"\n", 30000000);
     }
+
     //Initialize queue
     queue_init(&events, sizeof(Event), MAX_QUEUE);
 
@@ -220,7 +221,6 @@ int main() {
                     day = last_day_dispensed;
                 }
                 for (day; day < DAYS; day++) {
-                    sleep_ms(TIME_SLEEP);
                     char message[LOG_MESSAGE_SIZE];
                     char at_message[LOG_MESSAGE_SIZE];
                     //check_pill_dispensed();
@@ -248,7 +248,7 @@ int main() {
                     // Saving last day dispensed
                     last_day_dispensed = day + 1;
                     eeprom_write(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
-                    //sleep_ms(TIME_SLEEP);
+                    sleep_ms(TIME_SLEEP);
                 }
                 print_eeprom_logs();
                 send_message_to_lora(lora_response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
@@ -557,6 +557,7 @@ int check_power_cut(){
 
             eeprom_read(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
             recovery_calib(last_day_dispensed, steps_per_revolution);
+            sleep_ms(TIME_SLEEP);
             return SW2_PRESSED;
         }
     }
@@ -573,3 +574,4 @@ void remove_events() {
     Event current_event;
     while (queue_try_remove(&events, &current_event));
 }
+
