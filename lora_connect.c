@@ -1,5 +1,7 @@
 #include "lora_connect.h"
 
+#include <hardware/timer.h>
+
 // Functions for lora connection
 
 //AT+MODE=LWOTAA      Returns: +MODE: LWOTAA     / Enter LWOTAA mode successfully
@@ -45,6 +47,32 @@ bool send_command_to_lora(char *response, const char *command, uint32_t timeout)
         return false;
     }
 }
+
+
+bool send_message_to_lora(char *response, const char *command, uint32_t timeout) {
+    // Send command to UART
+    send_to_uart(uart1, command);
+    uint64_t start_time = time_us_64(); // Record start time
+    uint64_t current_time;
+
+    // Attempt to read response within timeout period
+    while (1) {
+        current_time = time_us_64();
+        if ((current_time - start_time) >= timeout) {
+            printf("Timeout reached, no response from LoRa module.\n");
+            return false; // Timeout
+        }
+
+        if (read_string_from_uart(uart1, timeout, response)) {
+            printf("Response: %s\n", response);
+            if (strstr(response, "+MSG: Done")) {
+                printf("Message \"%s\" successfully sent to LoRa.\n", command);
+                return true; // Command successful
+            }
+        }
+    }
+}
+
 
 
 
@@ -102,6 +130,7 @@ bool initialize_lora() {
     uint retries = 0;
     const int max_retries = 3;
     char response[INPUT_SIZE] = {0};
+    char command[INPUT_SIZE];
     //bool response_received = false;
     bool joined_network = false;
     printf("Initializing lora\n");
@@ -150,7 +179,7 @@ bool initialize_lora() {
                 break;
 
             case 4: // Set AppKey
-                if (send_command_to_lora(response, "AT+KEY=APPKEY,\"dbad61a383a2aff0c3f4cfe2244080e3\"\n", 500000)) {
+                if (send_command_to_lora(response, "AT+KEY=APPKEY,\"5c43da79b99e52403bce20fb9770dc42\"\n", 500000)) {
                     printf("AppKey configured: %s\n", response);
                     state = 5;
                 } else {
@@ -181,24 +210,46 @@ bool initialize_lora() {
 
             case 7: // Attempt to join the network
                 retries = 0;
+
                 while (retries < max_retries) {
-                    if (send_command_to_lora(response, "AT+JOIN\n", 30000000)) {
-                        printf("Successfully joined LoRa network: %s\n", response);
-                        joined_network = true;
-                        state = 0;
-                        return true;
-                        break;
-                    } else {
-                        printf("Join attempt %d failed.\n", retries + 1);
-                        retries++;
+                    snprintf(command, sizeof(command), "AT+JOIN\n");
+                    send_to_uart(uart1, command);
+
+                    uint64_t start_time = time_us_64();
+                    uint64_t elapsed_time = 0;
+                    bool response_received = false;
+
+                    while (elapsed_time < 30000000000) {
+                        if (read_string_from_uart(uart1, 3000, response)) {
+                            printf("Join response: %s\n", response);
+                            if (strstr(response, "+JOIN: Done") || strstr(response, "+JOIN: Joined already")) {
+                                printf("Successfully joined LoRa network.\n");
+                                joined_network = true;
+                                state = 9;
+                                response_received = true;
+                                break;
+                            }
+
+                            if (strstr(response, "LoRaWAN modem is busy")) {
+                                printf("Modem busy. Retrying...\n");
+                            } else {
+                                printf("Join response received but not successful.\n");
+                            }
+                        }
+                        elapsed_time = time_us_64() - start_time;
                     }
+
+                    if (response_received) break; //exit loop if joined successfully
+                    printf("Join attempt %d failed.\n", retries + 1);
+                    retries++;
                 }
+
                 if (!joined_network) {
                     printf("Failed to join network after %d retries.\n", max_retries);
-                    state = 0;
                     return false;
                 }
                 break;
+
             default:
                 printf("Invalid state encountered.\n");
                 return;

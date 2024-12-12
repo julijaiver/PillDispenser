@@ -193,6 +193,7 @@ int main() {
                     perform_calib();
                     write_log_message(curr_state, "Device calibrated");
                     printf("Device calibrated.\n");
+                    send_message_to_lora(lora_response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
                     calibrated = true;
                 }
                 else {
@@ -219,12 +220,15 @@ int main() {
                 for (day; day < DAYS; day++) {
                     sleep_ms(TIME_SLEEP);
                     char message[LOG_MESSAGE_SIZE];
+                    char at_message[LOG_MESSAGE_SIZE];
                     //check_pill_dispensed();
                     remove_events();
                     rotate_one_compartment();
                     if (detect_pill()) {
                         sprintf(message, "Pill detected for day %d", day + 1);
                         write_log_message(curr_state, message);
+                        sprintf(at_message, "AT+MSG=\"Pill detected for day %d.\"\n", day + 1);
+                        send_command_to_lora(lora_response, at_message, MSG_TIMEOUT);
                         printf("%s\n", message);
 
                     } else {
@@ -233,7 +237,9 @@ int main() {
                             blink_led(LED, 100);
                         }
                         sprintf(message, "Pill NOT detected for day %d", day + 1);
+                        sprintf(at_message, "AT+MSG=\"Pill not detected for day %d.\"\n", day + 1);
                         write_log_message(curr_state, message);
+                        send_command_to_lora(lora_response, at_message, MSG_TIMEOUT);
                         printf("%s\n", message);
 
                     }
@@ -248,6 +254,7 @@ int main() {
                 set_boot(UN_BOOT);
                 steps_per_revolution = 0;
                 delete_eeprom_log();
+                //send_message_to_lora(lora_response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
                 state = INITIAL_STATE;
                 break;
             }
