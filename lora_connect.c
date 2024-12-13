@@ -135,7 +135,7 @@ bool initialize_lora(char *response, int max_retries, uint32_t timeout) {
         {"AT+VER\r\n", "Failed to get LoRa version."},
         {"AT+ID=DEVEUI\r\n", "Failed to get DevEui."},
         {"AT+MODE=LWOTAA\r\n", "Failed to set mode."},
-        {"AT+KEY=APPKEY,\"dbad61a383a2aff0c3f4cfe2244080e3\"\r\n", "Failed to configure AppKey."},
+        {"AT+KEY=APPKEY,\"de8b29e6a3802dc0fe8ed499a8953369\"\r\n", "Failed to configure AppKey."},
         {"AT+CLASS=A\r\n", "Failed to set Class A mode."},
         {"AT+PORT=8\r\n", "Failed to set port."}
     };

@@ -43,19 +43,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2024.2.0.1\bin\cmake\win\x64\bin\cmake.exe"
+CMAKE_COMMAND = C:\Users\carol\CLion\bin\cmake\win\x64\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2024.2.0.1\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
+RM = C:\Users\carol\CLion\bin\cmake\win\x64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Study\Year2\period2\C_project\pill_dispenser
+CMAKE_SOURCE_DIR = C:\Users\carol\Desktop\pill_dispenser
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\carol\Desktop\pill_dispenser\cmake-build-debug
 
 # Utility rule file for bs2_default_padded_checksummed_asm.
 
@@ -68,12 +68,12 @@ include pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checks
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm: pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
 
 pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S: pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating bs2_default_padded_checksummed.S"
-	cd /d D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\boot_stage2 && C:\Users\lenovo\AppData\Local\Programs\Python\Python313\python.exe D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/boot_stage2/pad_checksum -s 0xffffffff D:/Study/Year2/period2/C_project/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin D:/Study/Year2/period2/C_project/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\carol\Desktop\pill_dispenser\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating bs2_default_padded_checksummed.S"
+	cd /d C:\Users\carol\Desktop\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\boot_stage2 && "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.9_3.9.3568.0_x64__qbz5n2kfra8p0\python3.9.exe" C:/Users/carol/Desktop/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/boot_stage2/pad_checksum -s 0xffffffff C:/Users/carol/Desktop/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin C:/Users/carol/Desktop/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
 
 pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin: pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating bs2_default.bin"
-	cd /d D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\boot_stage2 && D:\Study\Year2\period2\C_project\PicoSDKv1.5.0\gcc-arm-none-eabi\bin\arm-none-eabi-objcopy.exe -Obinary D:/Study/Year2/period2/C_project/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf D:/Study/Year2/period2/C_project/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\carol\Desktop\pill_dispenser\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating bs2_default.bin"
+	cd /d C:\Users\carol\Desktop\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\boot_stage2 && C:\Users\carol\Desktop\bin\PicoSDKv1.5.0\gcc-arm-none-eabi\bin\arm-none-eabi-objcopy.exe -Obinary C:/Users/carol/Desktop/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf C:/Users/carol/Desktop/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 
 bs2_default_padded_checksummed_asm: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm
 bs2_default_padded_checksummed_asm: pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
@@ -86,10 +86,10 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_as
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/build
 
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/clean:
-	cd /d D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\boot_stage2 && $(CMAKE_COMMAND) -P CMakeFiles\bs2_default_padded_checksummed_asm.dir\cmake_clean.cmake
+	cd /d C:\Users\carol\Desktop\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\boot_stage2 && $(CMAKE_COMMAND) -P CMakeFiles\bs2_default_padded_checksummed_asm.dir\cmake_clean.cmake
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/clean
 
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Study\Year2\period2\C_project\pill_dispenser D:\Study\Year2\period2\C_project\PicoSDKv1.5.0\pico-sdk\src\rp2_common\boot_stage2 D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\boot_stage2 D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\boot_stage2\CMakeFiles\bs2_default_padded_checksummed_asm.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\carol\Desktop\pill_dispenser C:\Users\carol\Desktop\bin\PicoSDKv1.5.0\pico-sdk\src\rp2_common\boot_stage2 C:\Users\carol\Desktop\pill_dispenser\cmake-build-debug C:\Users\carol\Desktop\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\boot_stage2 C:\Users\carol\Desktop\pill_dispenser\cmake-build-debug\pico-sdk\src\rp2_common\boot_stage2\CMakeFiles\bs2_default_padded_checksummed_asm.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/depend
 

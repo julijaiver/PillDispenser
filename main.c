@@ -83,6 +83,7 @@ static bool reverse = false;
 static bool calibrated = false;
 // Array for sending states to eeprom
 static uint8_t curr_state[LOG_MESSAGE_SIZE];
+static char response[256];
 
 
 //function for interrupts and events
@@ -153,12 +154,11 @@ int main() {
     stdio_init_all();
 
     //Initialize lora and connect
-    char response[256];
     int max_retries = 3;
     uint32_t timeout = 500000;
 
     setup_lora(max_retries, timeout);
-    send_message_to_lora(response, "AT+MSG=\"Boot\"\n", MSG_TIMEOUT+100000000);
+    send_message_to_lora(response, "AT+MSG=\"Boot\"\n", MSG_TIMEOUT);
 
 
     //Initialize queue
@@ -521,9 +521,11 @@ void write_steps_per_revolution_to_eeprom(uint16_t revolution) {
 int check_power_cut(){
     eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
     if (boot_status != UN_BOOT) {
+        send_message_to_lora(response, "AT+MSG=\"Reset or power cut off detected during last running round\"\n", MSG_TIMEOUT);
         printf("Reset or power cut off detected during running\n");
             if(boot_status == SW1_PRESSED) {
-            write_log_message(curr_state, "Reset or power cut off detected during CALIBRATION");
+                write_log_message(curr_state, "Reset or power cut off detected d+"
+                                              "uring CALIBRATION");
             if(read_steps_per_revolution_from_eeprom()!= 0) {
                 printf("Calibration complete\n");
                 return LED_ON;
