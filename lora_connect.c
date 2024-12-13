@@ -52,6 +52,7 @@ bool send_and_execute_lora_command(char *response, const char *command, const ch
 
 bool send_message_to_lora(char *response, const char *command, uint32_t timeout) {
     // Send command to UART
+    send_to_uart(uart1, "");
     send_to_uart(uart1, command);
     uint64_t start_time = time_us_64(); // Record start time
     uint64_t current_time;
@@ -72,8 +73,6 @@ bool send_message_to_lora(char *response, const char *command, uint32_t timeout)
         }
     }
 }
-
-
 
 
 bool read_string_from_uart(uart_inst_t *uart, uint32_t time_us, char *str) {
@@ -135,7 +134,7 @@ bool initialize_lora(char *response, int max_retries, uint32_t timeout) {
         {"AT+VER\r\n", "Failed to get LoRa version."},
         {"AT+ID=DEVEUI\r\n", "Failed to get DevEui."},
         {"AT+MODE=LWOTAA\r\n", "Failed to set mode."},
-        {"AT+KEY=APPKEY,\"de8b29e6a3802dc0fe8ed499a8953369\"\r\n", "Failed to configure AppKey."},
+        {"AT+KEY=APPKEY,\"dbad61a383a2aff0c3f4cfe2244080e3\"\r\n", "Failed to configure AppKey."},
         {"AT+CLASS=A\r\n", "Failed to set Class A mode."},
         {"AT+PORT=8\r\n", "Failed to set port."}
     };
@@ -198,12 +197,13 @@ bool join_lora(char *response, char *command, int max_retries, uint32_t timeout)
     return true;
 }
 
-void setup_lora(int max_retries, uint32_t timeout) {
+bool setup_lora(int max_retries, uint32_t timeout) {
     char response[256];
 
     // Initialize LoRa module
     if (!initialize_lora(response, max_retries, timeout)) {
         printf("LoRa initialization failed. Proceeding to next steps.\n");
+        return false;
     } else {
         printf("LoRa module initialized successfully.\n");
     }
@@ -211,9 +211,11 @@ void setup_lora(int max_retries, uint32_t timeout) {
     // Join LoRa network
     if (!join_lora(response, "AT+JOIN\r\n", max_retries, 30000000)) { // 30 seconds timeout for join
         printf("Failed to join LoRa network. Proceeding to next steps.\n");
+        return false;
     } else {
         printf("Successfully joined LoRa network.\n");
     }
+    return true;
 }
 
 
