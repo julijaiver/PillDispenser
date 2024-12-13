@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2024.2.0.1\bin\cmake\win\x64\bin\cmake.ex
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Study\Year2\period2\C_project\pill_dispenser
+CMAKE_SOURCE_DIR = C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\CMakeFiles D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug\CMakeFiles C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Study\Year2\period2\C_project\pill_dispenser\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Lenovo\Desktop\Metropolia\Embedded24.1\C\pill_dispenser\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -138,7 +138,7 @@ bs2_default: cmake_check_build_system
 
 # fast build rule for target.
 bs2_default/fast:
-	$(MAKE) $(MAKESILENT) -f pico-sdk\src\rp2_common\boot_stage2\CMakeFiles\bs2_default.dir\build.make pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/build
+	$(MAKE) $(MAKESILENT) -f pico-sdk\src\rp2040\boot_stage2\CMakeFiles\bs2_default.dir\build.make pico-sdk/src/rp2040/boot_stage2/CMakeFiles/bs2_default.dir/build
 .PHONY : bs2_default/fast
 
 #=============================================================================
@@ -151,21 +151,34 @@ bs2_default_bin: cmake_check_build_system
 
 # fast build rule for target.
 bs2_default_bin/fast:
-	$(MAKE) $(MAKESILENT) -f pico-sdk\src\rp2_common\boot_stage2\CMakeFiles\bs2_default_bin.dir\build.make pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/build
+	$(MAKE) $(MAKESILENT) -f pico-sdk\src\rp2040\boot_stage2\CMakeFiles\bs2_default_bin.dir\build.make pico-sdk/src/rp2040/boot_stage2/CMakeFiles/bs2_default_bin.dir/build
 .PHONY : bs2_default_bin/fast
 
 #=============================================================================
-# Target rules for targets named bs2_default_padded_checksummed_asm
+# Target rules for targets named bs2_default_library
 
 # Build rule for target.
-bs2_default_padded_checksummed_asm: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 bs2_default_padded_checksummed_asm
-.PHONY : bs2_default_padded_checksummed_asm
+bs2_default_library: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 bs2_default_library
+.PHONY : bs2_default_library
 
 # fast build rule for target.
-bs2_default_padded_checksummed_asm/fast:
-	$(MAKE) $(MAKESILENT) -f pico-sdk\src\rp2_common\boot_stage2\CMakeFiles\bs2_default_padded_checksummed_asm.dir\build.make pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/build
-.PHONY : bs2_default_padded_checksummed_asm/fast
+bs2_default_library/fast:
+	$(MAKE) $(MAKESILENT) -f pico-sdk\src\rp2040\boot_stage2\CMakeFiles\bs2_default_library.dir\build.make pico-sdk/src/rp2040/boot_stage2/CMakeFiles/bs2_default_library.dir/build
+.PHONY : bs2_default_library/fast
+
+#=============================================================================
+# Target rules for targets named pioasmBuild
+
+# Build rule for target.
+pioasmBuild: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 pioasmBuild
+.PHONY : pioasmBuild
+
+# fast build rule for target.
+pioasmBuild/fast:
+	$(MAKE) $(MAKESILENT) -f pico-sdk\src\rp2_common\tinyusb\CMakeFiles\pioasmBuild.dir\build.make pico-sdk/src/rp2_common/tinyusb/CMakeFiles/pioasmBuild.dir/build
+.PHONY : pioasmBuild/fast
 
 #=============================================================================
 # Target rules for targets named tinyusb_pico_pio_usb_usb_tx_pio_h
@@ -206,933 +219,1197 @@ cyw43_driver_picow_cyw43_bus_pio_spi_pio_h/fast:
 	$(MAKE) $(MAKESILENT) -f pico-sdk\src\rp2_common\pico_cyw43_driver\CMakeFiles\cyw43_driver_picow_cyw43_bus_pio_spi_pio_h.dir\build.make pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/cyw43_driver_picow_cyw43_bus_pio_spi_pio_h.dir/build
 .PHONY : cyw43_driver_picow_cyw43_bus_pio_spi_pio_h/fast
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.obj
-
-# target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
-
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj
-
-# target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
-
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj
-
-# target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
-
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider.obj
-
-# target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj
-
-# target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
-
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj
-
-# target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj
-
-# target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
-
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj
-
-# target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj
-
-# target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_crt0/crt0.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_crt0/crt0.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_crt0/crt0.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_crt0/crt0.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_crt0/crt0.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_crt0/crt0.S.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.cpp.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider_hardware.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider_hardware.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider_hardware.S.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj
-
-# target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
-
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.i
-
-# target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
-
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.s
-
-# target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
-
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.c.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.c.s
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.obj
 
 # target to build an object file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.i
 
 # target to preprocess a source file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.i
 
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.s
 
 # target to generate assembly for a file
-D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
-.PHONY : D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.c.s
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.i
+
+# target to preprocess a source file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.s
+
+# target to generate assembly for a file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.i
+
+# target to preprocess a source file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.c.i
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.s
+
+# target to generate assembly for a file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.c.s
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.i
+
+# target to preprocess a source file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.i
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.s
+
+# target to generate assembly for a file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.s
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.i
+
+# target to preprocess a source file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.s
+
+# target to generate assembly for a file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.i
+
+# target to preprocess a source file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.s
+
+# target to generate assembly for a file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.i
+
+# target to preprocess a source file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.i
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.s
+
+# target to generate assembly for a file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.c.s
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.i
+
+# target to preprocess a source file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.i
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.s
+
+# target to generate assembly for a file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.s
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.i
+
+# target to preprocess a source file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.i
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.s
+
+# target to generate assembly for a file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.c.s
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.i
+
+# target to preprocess a source file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.i
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.s
+
+# target to generate assembly for a file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.s
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.i
+
+# target to preprocess a source file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.s
+
+# target to generate assembly for a file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i
+
+# target to preprocess a source file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s
+
+# target to generate assembly for a file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj
+
+# target to build an object file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i
+
+# target to preprocess a source file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s
+
+# target to generate assembly for a file
+C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PillDispenser.dir\build.make CMakeFiles/PillDispenser.dir/C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+.PHONY : C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 
 eeprom_log.obj: eeprom_log.c.obj
 .PHONY : eeprom_log.obj
@@ -1215,128 +1492,162 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... bs2_default_bin
-	@echo ... bs2_default_padded_checksummed_asm
 	@echo ... cyw43_driver_picow_cyw43_bus_pio_spi_pio_h
+	@echo ... pioasmBuild
 	@echo ... tinyusb_pico_pio_usb_usb_rx_pio_h
 	@echo ... tinyusb_pico_pio_usb_usb_tx_pio_h
 	@echo ... PillDispenser
 	@echo ... bs2_default
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_claim/claim.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/platform.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i
-	@echo ... D_/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s
+	@echo ... bs2_default_library
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/hardware_claim/claim.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/critical_section.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/lock_core.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/mutex.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_sync/sem.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/time.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_time/timeout_helper.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/datetime.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/pheap.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_util/queue.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/pico_platform/platform.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_boot_lock/boot_lock.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_clocks/clocks.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_divider/divider.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_gpio/gpio.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_i2c/i2c.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_pll/pll.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync/sync.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_ticks/ticks.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_timer/timer.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_uart/uart.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_vreg/vreg.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_xosc/xosc.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_atomic/atomic.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_bootrom/bootrom_lock.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_clib_interface/newlib_interface.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_crt0/crt0.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_cxx_options/new_delete.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_divider/divider_hardware.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_aeabi_rp2040.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_init_rom_rp2040.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_math.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_flash/flash.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_aeabi_rp2040.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_init_rom_rp2040.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_math.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_malloc/malloc.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform_panic/panic.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_printf/printf.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime/runtime.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_stack_guard.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_standard_binary_info/standard_binary_info.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio/stdio.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i
+	@echo ... C_/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s
 	@echo ... eeprom_log.obj
 	@echo ... eeprom_log.i
 	@echo ... eeprom_log.s

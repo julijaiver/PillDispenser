@@ -153,11 +153,13 @@ int main() {
     stdio_init_all();
 
     //Initialize lora and connect
-    bool lora_joined = initialize_lora();
-    char lora_response[INPUT_SIZE];
-    if (lora_joined) {
-        send_command_to_lora(lora_response, "AT+MSG=\"Boot\"\n", 30000000);
-    }
+    char response[256];
+    int max_retries = 3;
+    uint32_t timeout = 500000;
+
+    setup_lora(max_retries, timeout);
+    send_message_to_lora(response, "AT+MSG=\"Boot\"\n", MSG_TIMEOUT+100000000);
+
 
     //Initialize queue
     queue_init(&events, sizeof(Event), MAX_QUEUE);
@@ -193,7 +195,7 @@ int main() {
                     write_log_message(curr_state, "Calibrating");
                     perform_calib();
                     remove_events();
-                    send_message_to_lora(lora_response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
+                    send_message_to_lora(response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
                     write_log_message(curr_state, "Device calibrated");
                     printf("Device calibrated. Place the pills to the device.\n");
                     calibrated = true;
@@ -227,7 +229,7 @@ int main() {
                     if (detect_pill()) {
                         sprintf(message, "Pill detected for day %d", day + 1);
                         sprintf(at_message, "AT+MSG=\"Pill detected for day %d.\"\n", day + 1);
-                        send_message_to_lora(lora_response, at_message, MSG_TIMEOUT);
+                        send_message_to_lora(response, at_message, MSG_TIMEOUT);
                         write_log_message(curr_state, message);
                         printf("%s\n", message);
 
@@ -238,7 +240,7 @@ int main() {
                         }
                         sprintf(message, "Pill NOT detected for day %d", day + 1);
                         sprintf(at_message, "AT+MSG=\"Pill not detected for day %d.\"\n", day + 1);
-                        send_message_to_lora(lora_response, at_message, MSG_TIMEOUT);
+                        send_message_to_lora(response, at_message, MSG_TIMEOUT);
                         write_log_message(curr_state, message);
                         printf("%s\n", message);
                     }
@@ -249,7 +251,7 @@ int main() {
                     day++;
                 }
                 print_eeprom_logs();
-                send_message_to_lora(lora_response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
+                send_message_to_lora(response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
                 calibrated = false;
                 last_day_dispensed = 0;
                 set_boot(UN_BOOT);

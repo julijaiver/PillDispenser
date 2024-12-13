@@ -1,6 +1,7 @@
 #include "lora_connect.h"
 
 #include <hardware/timer.h>
+#include <pico/time.h>
 
 // Functions for lora connection
 
@@ -37,13 +38,13 @@ void send_to_uart(uart_inst_t *uart, char *string) {
     uart_write_blocking(uart, string, strlen((char *)string));
 }
 
-bool send_command_to_lora(char *response, const char *command, uint32_t timeout) {
+bool send_and_execute_lora_command(char *response, const char *command, const char *error_message, uint32_t timeout) {
     send_to_uart(uart1, command);
     if (read_string_from_uart(uart1, timeout, response)) {
-        printf("Response: %s\n", response);
+        //printf("Response: %s\n", response);
         return true;
     } else {
-        printf("Module stopped responding\n");
+        printf("%s\n", error_message);
         return false;
     }
 }
@@ -56,19 +57,18 @@ bool send_message_to_lora(char *response, const char *command, uint32_t timeout)
     uint64_t current_time;
 
     // Attempt to read response within timeout period
-    while (1) {
+    while (true) {
         current_time = time_us_64();
-        if ((current_time - start_time) >= timeout) {
-            printf("Timeout reached, no response from LoRa module.\n");
-            return false; // Timeout
-        }
-
         if (read_string_from_uart(uart1, timeout, response)) {
             printf("Response: %s\n", response);
             if (strstr(response, "+MSG: Done")) {
                 printf("Message \"%s\" successfully sent to LoRa.\n", command);
                 return true; // Command successful
             }
+        }
+        if ((current_time - start_time) >= timeout) {
+            printf("Timeout reached, no response from LoRa module.\n");
+            return false; // Timeout
         }
     }
 }
@@ -124,8 +124,104 @@ void process_string(char *string) {
     }
 }
 
+bool initialize_lora(char *response, int max_retries, uint32_t timeout) {
+    typedef struct {
+        const char *command;
+        const char *error_message;
+    } LoraCommand;
+
+    const LoraCommand commands[] = {
+        {"AT\r\n", "Module not responding."},
+        {"AT+VER\r\n", "Failed to get LoRa version."},
+        {"AT+ID=DEVEUI\r\n", "Failed to get DevEui."},
+        {"AT+MODE=LWOTAA\r\n", "Failed to set mode."},
+        {"AT+KEY=APPKEY,\"dbad61a383a2aff0c3f4cfe2244080e3\"\r\n", "Failed to configure AppKey."},
+        {"AT+CLASS=A\r\n", "Failed to set Class A mode."},
+        {"AT+PORT=8\r\n", "Failed to set port."}
+    };
+
+    for (size_t i = 0; i < sizeof(commands) / sizeof(commands[0]); i++) {
+        int retries = 0;
+        while (retries < max_retries) {
+            if (send_and_execute_lora_command(response, commands[i].command, commands[i].error_message, timeout)) {
+                break;
+            }
+            retries++;
+            if (retries >= max_retries) {
+                printf("Failed to execute command: %s after %d retries.\n", commands[i].command, max_retries);
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool join_lora(char *response, char *command, int max_retries, uint32_t timeout) {
+    int retries = 0;
+    bool joined = false;
+
+    while (retries < max_retries) {
+        snprintf(command, sizeof(command),"AT+JOIN\r\n");
+        send_to_uart(uart1, command);
+
+        uint64_t start_time = time_us_64();
+        uint64_t elapsed_time = 0;
+        bool response_received = false;
+
+        while (elapsed_time < timeout) {
+            if (read_string_from_uart(uart1, timeout, response)) {
+                printf("Response: %s\n", response);
+                if (strstr(response, "+JOIN: Network joined") || strstr(response, "+JOIN: Joined already")) {
+                    printf("Successfully joined LoRa network.\n");
+                    joined = true;
+                    response_received = true;
+                    break;
+                }
+                if (strstr(response, "+JOIN: Join failed")) {
+                    printf("Failed to join LoRa.\n");
+                    break;
+                }else {
+                    printf("Trying to join.\n");
+                }
+            }
+            elapsed_time = time_us_64() - start_time;
+        }
+
+        if (response_received) break;
+        printf("Join attempt %d failed.\n", retries + 1);
+        retries++;
+    }
+    if (!joined) {
+        printf("Failed to join network after %d retries.\n", max_retries);
+        return false;
+    }
+    return true;
+}
+
+void setup_lora(int max_retries, uint32_t timeout) {
+    char response[256];
+
+    // Initialize LoRa module
+    if (!initialize_lora(response, max_retries, timeout)) {
+        printf("LoRa initialization failed. Proceeding to next steps.\n");
+    } else {
+        printf("LoRa module initialized successfully.\n");
+    }
+
+    // Join LoRa network
+    if (!join_lora(response, "AT+JOIN\r\n", max_retries, 30000000)) { // 30 seconds timeout for join
+        printf("Failed to join LoRa network. Proceeding to next steps.\n");
+    } else {
+        printf("Successfully joined LoRa network.\n");
+    }
+}
+
+
+
+
+
 //function for initializing and connecting lora
-bool initialize_lora() {
+/*bool initialize_lora() {
     uint state = 0;
     uint retries = 0;
     const int max_retries = 3;
@@ -140,7 +236,7 @@ bool initialize_lora() {
             case 0: // Check if the LoRa module is responsive
                 sleep_ms(2000);
                 if (send_command_to_lora(response, "AT\n", 500000)) {
-                    printf("Connected to LoRa module: %s\n", response);
+                    //printf("Connected to LoRa module: %s\n", response);
                     state = 1;
                 } else {
                     printf("Module not responding.\n");
@@ -151,7 +247,7 @@ bool initialize_lora() {
 
             case 1: // Get firmware version
                 if (send_command_to_lora(response, "AT+VER\n", 500000)) {
-                    printf("LoRa version: %s\n", response);
+                    //printf("LoRa version: %s\n", response);
                     state = 2;
                 } else {
                     printf("Failed to get LoRa version.\n");
@@ -161,7 +257,7 @@ bool initialize_lora() {
 
             case 2: // Get DevEui
                 if (send_command_to_lora(response, "AT+ID=DEVEUI\n", 500000)) {
-                    printf("DevEui: %s\n", response);
+                    //printf("DevEui: %s\n", response);
                     state = 3;
                 } else {
                     printf("Failed to get DevEui.\n");
@@ -223,12 +319,16 @@ bool initialize_lora() {
                     while (elapsed_time < 30000000000) {
                         if (read_string_from_uart(uart1, 3000, response)) {
                             printf("Join response: %s\n", response);
-                            if (strstr(response, "+JOIN: Done") || strstr(response, "+JOIN: Joined already")) {
+                            if (strstr(response, "+JOIN: Network joined") || strstr(response, "+JOIN: Joined already")) {
                                 printf("Successfully joined LoRa network.\n");
                                 joined_network = true;
                                 state = 9;
                                 response_received = true;
                                 break;
+                            }
+                            if (strstr(response, "+JOIN: Join failed")) {
+                                printf("Failed to join network.\n");
+                                state = 0;
                             }
 
                             if (strstr(response, "LoRaWAN modem is busy")) {
@@ -257,4 +357,7 @@ bool initialize_lora() {
         }
     }
 }
+*/
+
+
 

@@ -1,4 +1,4 @@
-set(CMAKE_CXX_COMPILER "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/bin/arm-none-eabi-g++.exe")
+set(CMAKE_CXX_COMPILER "C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/bin/arm-none-eabi-g++.exe")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_COMPILER_VERSION "10.3.1")
@@ -22,11 +22,11 @@ set(CMAKE_CXX_SIMULATE_VERSION "")
 
 
 
-set(CMAKE_AR "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/bin/arm-none-eabi-ar.exe")
-set(CMAKE_CXX_COMPILER_AR "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/bin/arm-none-eabi-gcc-ar.exe")
-set(CMAKE_RANLIB "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/bin/arm-none-eabi-ranlib.exe")
-set(CMAKE_CXX_COMPILER_RANLIB "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/bin/arm-none-eabi-gcc-ranlib.exe")
-set(CMAKE_LINKER "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/bin/arm-none-eabi-ld.exe")
+set(CMAKE_AR "C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/bin/arm-none-eabi-ar.exe")
+set(CMAKE_CXX_COMPILER_AR "C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/bin/arm-none-eabi-gcc-ar.exe")
+set(CMAKE_RANLIB "C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/bin/arm-none-eabi-ranlib.exe")
+set(CMAKE_CXX_COMPILER_RANLIB "C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/bin/arm-none-eabi-gcc-ranlib.exe")
+set(CMAKE_LINKER "C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/bin/arm-none-eabi-ld.exe")
 set(CMAKE_LINKER_LINK "")
 set(CMAKE_LINKER_LLD "")
 set(CMAKE_CXX_COMPILER_LINKER "NOTFOUND")
@@ -85,8 +85,8 @@ endif()
 
 
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/arm-none-eabi/include/c++/10.3.1;D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/arm-none-eabi/include/c++/10.3.1/arm-none-eabi/thumb/v6-m/nofp;D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/arm-none-eabi/include/c++/10.3.1/backward;D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/10.3.1/include;D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/10.3.1/include-fixed;D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/arm-none-eabi/include")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/arm-none-eabi/include/c++/10.3.1;C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/arm-none-eabi/include/c++/10.3.1/arm-none-eabi/thumb/v6-m/nofp;C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/arm-none-eabi/include/c++/10.3.1/backward;C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/10.3.1/include;C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/10.3.1/include-fixed;C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/arm-none-eabi/include")
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp;D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/arm-none-eabi/lib/thumb/v6-m/nofp;D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/10.3.1;D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/lib/gcc;D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/gcc-arm-none-eabi/arm-none-eabi/lib")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp;C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/arm-none-eabi/lib/thumb/v6-m/nofp;C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/10.3.1;C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/lib/gcc;C:/Users/Lenovo/Desktop/Metropolia/bin/PicoSDKv1.5.0/gcc-arm-none-eabi/arm-none-eabi/lib")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
 set(CMAKE_CXX_COMPILER_CLANG_RESOURCE_DIR "")
