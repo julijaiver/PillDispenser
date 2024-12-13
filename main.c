@@ -15,7 +15,7 @@ void initialize_i2c(void);
 void initialize_controller(uint controller);
 void rotate_one_compartment();
 void move_one_step(void);
-bool check_for_edge(bool rising_edge);
+void check_for_edge(bool rising_edge);
 void perform_calib();
 int check_pressed(int button);
 void initialize_button (int button);
@@ -44,7 +44,7 @@ void remove_events();
 #define IN3 6
 #define IN4 13
 #define OPTO_FORK 28
-#define TRIAL 1
+#define TRIAL 2
 #define MAX_SIZE 256
 #define EQUIP_INACCURACY 130
 #define DELAY 50
@@ -91,7 +91,7 @@ static void gpio_handler(uint gpio, uint32_t event) {
     uint64_t current_time = time_us_64();
     uint64_t elapsed_time = current_time - last_event_time;
 
-    if (elapsed_time > 50000) {  //debounce
+    if (elapsed_time > 100000) {  //debounce
         last_event_time = current_time;
 
         if (gpio == SW_1) {
@@ -338,7 +338,7 @@ void move_one_step(void) {
     sleep_ms(CHANGE_SPEED);
 }
 
-bool check_for_edge(bool rising_edge) {
+void check_for_edge(bool rising_edge) {
     bool start = false;
     int previous_value = 0;
     int current_value = 0;
@@ -364,7 +364,6 @@ bool check_for_edge(bool rising_edge) {
             start = true;
         }
     }
-    return start;
 }
 
 //function that calibrate the motor
