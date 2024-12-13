@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_ASM
-  "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/boot_stage2/compile_time_choice.S" "D:/Study/Year2/period2/C_project/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/compile_time_choice.S.obj"
+  "C:/Users/carol/Desktop/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/boot_stage2/compile_time_choice.S" "C:/Users/carol/Desktop/pill_dispenser/cmake-build-debug/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/compile_time_choice.S.obj"
   )
 set(CMAKE_ASM_COMPILER_ID "GNU")
 
@@ -22,14 +22,14 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
 
 # The include file search paths:
 set(CMAKE_ASM_TARGET_INCLUDE_PATH
-  "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/boot_stage2/asminclude"
-  "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_regs/include"
-  "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_base/include"
-  "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/common/pico_base/include"
+  "C:/Users/carol/Desktop/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/boot_stage2/asminclude"
+  "C:/Users/carol/Desktop/bin/PicoSDKv1.5.0/pico-sdk/src/rp2040/hardware_regs/include"
+  "C:/Users/carol/Desktop/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/hardware_base/include"
+  "C:/Users/carol/Desktop/bin/PicoSDKv1.5.0/pico-sdk/src/common/pico_base/include"
   "generated/pico_base"
-  "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/boards/include"
-  "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/include"
-  "D:/Study/Year2/period2/C_project/PicoSDKv1.5.0/pico-sdk/src/rp2_common/boot_stage2/include"
+  "C:/Users/carol/Desktop/bin/PicoSDKv1.5.0/pico-sdk/src/boards/include"
+  "C:/Users/carol/Desktop/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/pico_platform/include"
+  "C:/Users/carol/Desktop/bin/PicoSDKv1.5.0/pico-sdk/src/rp2_common/boot_stage2/include"
   )
 
 # The set of dependency files which are needed:
