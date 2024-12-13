@@ -57,14 +57,14 @@ void remove_events();
 #define DAYS 7
 #define PIEZO_SENSOR 27
 #define MAX_QUEUE 100
-#define FALL_TIME 85 //calculated what is the maximum time needed in theory for a pill to drop. t= sqrt((2*0.035)/9.8) = 0.085 s.
+#define FALL_TIME 100 //calculated what is the maximum time needed in theory for a pill to drop. t= sqrt((2*0.035)/9.8) = 0.085 s.
 #define EQUIP_INACCURACY_REVERSE 207
 #define LOG_MESSAGE_SIZE 61
 #define ADDRESS_FOR_DAY 0x0802
 #define ADDRESS_FOR_STEP 0x0803
 #define ADDRESS_BOOT_STATUS 0X0806
 #define UN_BOOT 0
-#define TIME_SLEEP 3000
+#define TIME_SLEEP 30000
 
 typedef enum {
     INITIAL_STATE = 0,
