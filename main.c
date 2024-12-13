@@ -15,7 +15,7 @@ void initialize_i2c(void);
 void initialize_controller(uint controller);
 void rotate_one_compartment();
 void move_one_step(void);
-void check_for_edge(bool rising_edge);
+bool check_for_edge(bool rising_edge);
 void perform_calib();
 int check_pressed(int button);
 void initialize_button (int button);
@@ -44,7 +44,7 @@ void remove_events();
 #define IN3 6
 #define IN4 13
 #define OPTO_FORK 28
-#define TRIAL 2
+#define TRIAL 1
 #define MAX_SIZE 256
 #define EQUIP_INACCURACY 130
 #define DELAY 50
@@ -85,13 +85,12 @@ static bool calibrated = false;
 static uint8_t curr_state[LOG_MESSAGE_SIZE];
 static char response[256];
 
-
 //function for interrupts and events
 static void gpio_handler(uint gpio, uint32_t event) {
     uint64_t current_time = time_us_64();
     uint64_t elapsed_time = current_time - last_event_time;
 
-    if (elapsed_time > 100000) {  //debounce
+    if (elapsed_time > 50000) {  //debounce
         last_event_time = current_time;
 
         if (gpio == SW_1) {
@@ -157,9 +156,10 @@ int main() {
     int max_retries = 3;
     uint32_t timeout = 500000;
 
-    setup_lora(max_retries, timeout);
-    send_message_to_lora(response, "AT+MSG=\"Boot\"\n", MSG_TIMEOUT);
-
+    bool joined_lora_network = setup_lora(max_retries, timeout);
+    if (joined_lora_network) {
+        send_message_to_lora(response, "AT+MSG=\"Boot\"\n", MSG_TIMEOUT);
+    }
 
     //Initialize queue
     queue_init(&events, sizeof(Event), MAX_QUEUE);
@@ -195,7 +195,9 @@ int main() {
                     write_log_message(curr_state, "Calibrating");
                     perform_calib();
                     remove_events();
-                    send_message_to_lora(response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
+                    if (joined_lora_network) {
+                        send_message_to_lora(response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
+                    }
                     write_log_message(curr_state, "Device calibrated");
                     printf("Device calibrated. Place the pills to the device.\n");
                     calibrated = true;
@@ -229,7 +231,9 @@ int main() {
                     if (detect_pill()) {
                         sprintf(message, "Pill detected for day %d", day + 1);
                         sprintf(at_message, "AT+MSG=\"Pill detected for day %d.\"\n", day + 1);
-                        send_message_to_lora(response, at_message, MSG_TIMEOUT);
+                        if (joined_lora_network) {
+                            send_message_to_lora(response, at_message, MSG_TIMEOUT);
+                        }
                         write_log_message(curr_state, message);
                         printf("%s\n", message);
 
@@ -240,7 +244,9 @@ int main() {
                         }
                         sprintf(message, "Pill NOT detected for day %d", day + 1);
                         sprintf(at_message, "AT+MSG=\"Pill not detected for day %d.\"\n", day + 1);
-                        send_message_to_lora(response, at_message, MSG_TIMEOUT);
+                        if (joined_lora_network) {
+                            send_message_to_lora(response, at_message, MSG_TIMEOUT);
+                        }
                         write_log_message(curr_state, message);
                         printf("%s\n", message);
                     }
@@ -251,7 +257,9 @@ int main() {
                     day++;
                 }
                 print_eeprom_logs();
-                send_message_to_lora(response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
+                if (joined_lora_network) {
+                    send_message_to_lora(response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
+                }
                 calibrated = false;
                 last_day_dispensed = 0;
                 set_boot(UN_BOOT);
@@ -338,7 +346,7 @@ void move_one_step(void) {
     sleep_ms(CHANGE_SPEED);
 }
 
-void check_for_edge(bool rising_edge) {
+bool check_for_edge(bool rising_edge) {
     bool start = false;
     int previous_value = 0;
     int current_value = 0;
@@ -364,6 +372,7 @@ void check_for_edge(bool rising_edge) {
             start = true;
         }
     }
+    return start;
 }
 
 //function that calibrate the motor
@@ -520,11 +529,11 @@ void write_steps_per_revolution_to_eeprom(uint16_t revolution) {
 int check_power_cut(){
     eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
     if (boot_status != UN_BOOT) {
-        send_message_to_lora(response, "AT+MSG=\"Reset or power cut off detected during last running round\"\n", MSG_TIMEOUT);
+        send_message_to_lora(response, "AT+MSG=\"Reset of power cut off detected during turning.\"\n", MSG_TIMEOUT);
         printf("Reset or power cut off detected during running\n");
+
             if(boot_status == SW1_PRESSED) {
-                write_log_message(curr_state, "Reset or power cut off detected d+"
-                                              "uring CALIBRATION");
+            write_log_message(curr_state, "Reset or power cut off detected during CALIBRATION");
             if(read_steps_per_revolution_from_eeprom()!= 0) {
                 printf("Calibration complete\n");
                 return LED_ON;
