@@ -17,7 +17,7 @@ void process_string(char *str);
 bool initialize_lora();
 bool join_lora(char *response, char *command, int max_retries, uint32_t timeout);
 bool send_message_to_lora(char *response, const char *command, uint32_t timeout);
-void setup_lora(int max_retries, uint32_t timeout);
+bool setup_lora(int max_retries, uint32_t timeout);
 
 
 #endif //LORA_CONNECT_H
