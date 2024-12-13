@@ -91,7 +91,7 @@ static void gpio_handler(uint gpio, uint32_t event) {
     uint64_t current_time = time_us_64();
     uint64_t elapsed_time = current_time - last_event_time;
 
-    if (elapsed_time > 10000) {  //debounce
+    if (elapsed_time > 50000) {  //debounce
         last_event_time = current_time;
 
         if (gpio == SW_1) {
