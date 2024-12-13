@@ -83,14 +83,14 @@ static bool reverse = false;
 static bool calibrated = false;
 // Array for sending states to eeprom
 static uint8_t curr_state[LOG_MESSAGE_SIZE];
-
+static char response[256];
 
 //function for interrupts and events
 static void gpio_handler(uint gpio, uint32_t event) {
     uint64_t current_time = time_us_64();
     uint64_t elapsed_time = current_time - last_event_time;
 
-    if (elapsed_time > 10000) {  //debounce
+    if (elapsed_time > 50000) {  //debounce
         last_event_time = current_time;
 
         if (gpio == SW_1) {
@@ -153,13 +153,13 @@ int main() {
     stdio_init_all();
 
     //Initialize lora and connect
-    char response[256];
     int max_retries = 3;
     uint32_t timeout = 500000;
 
-    setup_lora(max_retries, timeout);
-    send_message_to_lora(response, "AT+MSG=\"Boot\"\n", MSG_TIMEOUT+100000000);
-
+    bool joined_lora_network = setup_lora(max_retries, timeout);
+    if (joined_lora_network) {
+        send_message_to_lora(response, "AT+MSG=\"Boot\"\n", MSG_TIMEOUT);
+    }
 
     //Initialize queue
     queue_init(&events, sizeof(Event), MAX_QUEUE);
@@ -195,7 +195,9 @@ int main() {
                     write_log_message(curr_state, "Calibrating");
                     perform_calib();
                     remove_events();
-                    send_message_to_lora(response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
+                    if (joined_lora_network) {
+                        send_message_to_lora(response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
+                    }
                     write_log_message(curr_state, "Device calibrated");
                     printf("Device calibrated. Place the pills to the device.\n");
                     calibrated = true;
@@ -229,7 +231,9 @@ int main() {
                     if (detect_pill()) {
                         sprintf(message, "Pill detected for day %d", day + 1);
                         sprintf(at_message, "AT+MSG=\"Pill detected for day %d.\"\n", day + 1);
-                        send_message_to_lora(response, at_message, MSG_TIMEOUT);
+                        if (joined_lora_network) {
+                            send_message_to_lora(response, at_message, MSG_TIMEOUT);
+                        }
                         write_log_message(curr_state, message);
                         printf("%s\n", message);
 
@@ -240,7 +244,9 @@ int main() {
                         }
                         sprintf(message, "Pill NOT detected for day %d", day + 1);
                         sprintf(at_message, "AT+MSG=\"Pill not detected for day %d.\"\n", day + 1);
-                        send_message_to_lora(response, at_message, MSG_TIMEOUT);
+                        if (joined_lora_network) {
+                            send_message_to_lora(response, at_message, MSG_TIMEOUT);
+                        }
                         write_log_message(curr_state, message);
                         printf("%s\n", message);
                     }
@@ -251,7 +257,9 @@ int main() {
                     day++;
                 }
                 print_eeprom_logs();
-                send_message_to_lora(response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
+                if (joined_lora_network) {
+                    send_message_to_lora(response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
+                }
                 calibrated = false;
                 last_day_dispensed = 0;
                 set_boot(UN_BOOT);
@@ -521,7 +529,9 @@ void write_steps_per_revolution_to_eeprom(uint16_t revolution) {
 int check_power_cut(){
     eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
     if (boot_status != UN_BOOT) {
+        send_message_to_lora(response, "AT+MSG=\"Reset of power cut off detected during turning.\"\n", MSG_TIMEOUT);
         printf("Reset or power cut off detected during running\n");
+
             if(boot_status == SW1_PRESSED) {
             write_log_message(curr_state, "Reset or power cut off detected during CALIBRATION");
             if(read_steps_per_revolution_from_eeprom()!= 0) {
