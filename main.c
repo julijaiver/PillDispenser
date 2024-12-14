@@ -15,7 +15,7 @@ void initialize_i2c(void);
 void initialize_controller(uint controller);
 void rotate_one_compartment();
 void move_one_step(void);
-bool check_for_edge(bool rising_edge);
+void check_for_edge(bool rising_edge);
 void perform_calib();
 int check_pressed(int button);
 void initialize_button (int button);
@@ -57,7 +57,7 @@ void remove_events();
 #define DAYS 7
 #define PIEZO_SENSOR 27
 #define MAX_QUEUE 100
-#define FALL_TIME 85 //calculated what is the maximum time needed in theory for a pill to drop. t= sqrt((2*0.035)/9.8) = 0.085 s.
+#define FALL_TIME 100 //calculated what is the maximum time needed in theory for a pill to drop. t= sqrt((2*0.035)/9.8) = 0.085 s.
 #define EQUIP_INACCURACY_REVERSE 207
 #define LOG_MESSAGE_SIZE 61
 #define ADDRESS_FOR_DAY 0x0802
@@ -74,8 +74,6 @@ typedef enum {
     LED_ON = 4,
 } Event;
 
-static queue_t events;
-static uint last_event_time = 0;
 static uint8_t boot_status = UN_BOOT;
 static uint8_t last_day_dispensed = 0;
 static int steps_per_revolution = 0;
@@ -84,6 +82,9 @@ static bool calibrated = false;
 // Array for sending states to eeprom
 static uint8_t curr_state[LOG_MESSAGE_SIZE];
 static char response[256];
+//ISR used data
+static queue_t events;
+static uint last_event_time = 0;
 
 //function for interrupts and events
 static void gpio_handler(uint gpio, uint32_t event) {
@@ -101,13 +102,9 @@ static void gpio_handler(uint gpio, uint32_t event) {
             queue_try_add(&events, &sw2_pressed);
         }
     }
-    if (elapsed_time > 20000) {
-        //debounce for pill dropping
-        last_event_time = current_time;
-        if (gpio == PIEZO_SENSOR) {
-            Event pill_detected = PILL_DISPENSED;
-            queue_try_add(&events, &pill_detected);
-        }
+    if (gpio == PIEZO_SENSOR) {
+        Event pill_detected = PILL_DISPENSED;
+        queue_try_add(&events, &pill_detected);
     }
 }
 
@@ -231,10 +228,10 @@ int main() {
                     if (detect_pill()) {
                         sprintf(message, "Pill detected for day %d", day + 1);
                         sprintf(at_message, "AT+MSG=\"Pill detected for day %d.\"\n", day + 1);
+                        write_log_message(curr_state, message);
                         if (joined_lora_network) {
                             send_message_to_lora(response, at_message, MSG_TIMEOUT);
                         }
-                        write_log_message(curr_state, message);
                         printf("%s\n", message);
 
                     } else {
@@ -346,7 +343,7 @@ void move_one_step(void) {
     sleep_ms(CHANGE_SPEED);
 }
 
-bool check_for_edge(bool rising_edge) {
+void check_for_edge(bool rising_edge) {
     bool start = false;
     int previous_value = 0;
     int current_value = 0;
@@ -372,7 +369,6 @@ bool check_for_edge(bool rising_edge) {
             start = true;
         }
     }
-    return start;
 }
 
 //function that calibrate the motor

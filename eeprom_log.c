@@ -21,11 +21,20 @@ bool validate_crc(uint8_t *data_buffer, size_t buffer_len) {
     return true;
 }
 
+bool eeprom_write(uint16_t address, uint8_t *data, size_t data_len) {
+    uint8_t addr_buf[2] = {((address >> 8) & 0xff), (address & 0xff)};
+    uint8_t data_buf[data_len + 2];
+
+    memcpy(data_buf, addr_buf, sizeof(addr_buf));
+    memcpy(&data_buf[2], data, data_len);
+
+    int result = i2c_write_blocking(i2c0, EEPROM_ADDRESS, data_buf, data_len+2, false);
+    sleep_ms(5);  // Not sure if sleep is needed? Maybe just check if it was written
+    return result == data_len + 2;
+}
+
 bool write_log_to_eeprom(const uint8_t *message, size_t message_len) {
     uint16_t log_addr;
-    /*if (!read_from_eeprom(MAX_LOG_ADDRESS + BUFFER_SIZE, (uint8_t *) &log_addr, sizeof(log_addr))) {
-        log_addr = 0;
-    }*/
     if (!log_empty(&log_addr)) {
         delete_eeprom_log();
         log_addr = 0;
@@ -53,18 +62,6 @@ bool write_log_to_eeprom(const uint8_t *message, size_t message_len) {
 
     eeprom_write(MAX_LOG_ADDRESS + BUFFER_SIZE, (uint8_t *)&log_addr, sizeof(log_addr));
     return true;
-}
-
-bool eeprom_write(uint16_t address, uint8_t *data, size_t data_len) {
-    uint8_t addr_buf[2] = {((address >> 8) & 0xff), (address & 0xff)};
-    uint8_t data_buf[data_len + 2];
-
-    memcpy(data_buf, addr_buf, sizeof(addr_buf));
-    memcpy(&data_buf[2], data, data_len);
-
-    int result = i2c_write_blocking(i2c0, EEPROM_ADDRESS, data_buf, data_len+2, false);
-    sleep_ms(5);  // Not sure if sleep is needed? Maybe just check if it was written
-    return result == data_len + 2;
 }
 
 void write_log_message(uint8_t *message_array, const char *message_content) {
