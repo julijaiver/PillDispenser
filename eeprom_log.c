@@ -98,10 +98,9 @@ void print_eeprom_logs(const size_t *message_len) {
             if (read_data[0] != 0) {
                 if (read_data[BUFFER_SIZE-3] == 0) {
                     if (validate_crc(read_data, *message_len+3)) {
-                        printf("CRC OK\n");
-                    } else printf("CRC ERROR\n");
-                    char *message_read = (char *) read_data;
-                    printf("Log message at address 0x%04x: %s\n", i, message_read);
+                        char *message_read = (char *) read_data;
+                        printf("Log message at address 0x%04x: %s\n", i, message_read);
+                    }
                 }
             }
         } else {

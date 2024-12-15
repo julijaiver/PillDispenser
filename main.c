@@ -151,7 +151,7 @@ int main() {
 
     // Initialize structures
     device device = {.boot_status = UN_BOOT, .last_day_dispensed = 0, .steps_per_revolution = 0, .reverse = false, .calibrated = false };
-    messaging messaging_values;
+    messaging messaging_values = { .curr_state = {0}, .response = {0}};
 
     //Initialize lora and connect
     int max_retries = 3;
@@ -173,10 +173,8 @@ int main() {
 
     Event current_event = INITIAL_STATE;
     uint state = 0;
-    //calibrated = false;
+    device.calibrated = false;
 
-    // Initial Boot message upon start
-    //write_log_message(curr_state, "Boot");
     print_eeprom_logs(&messaging_values.message_len);
 
     eeprom_read(ADDRESS_BOOT_STATUS, &device.boot_status, 1);
