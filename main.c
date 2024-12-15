@@ -73,16 +73,6 @@ typedef enum {
     LED_ON = 4,
 } Event;
 
-/*static uint8_t boot_status = UN_BOOT;
-static uint8_t last_day_dispensed = 0;
-static int steps_per_revolution = 0;
-static bool reverse = false;
-static bool calibrated = false;*/
-// Array for sending states to eeprom
-/*static uint8_t curr_state[LOG_MESSAGE_SIZE];
-static char response[256];
-static size_t message_len;*/
-//ISR used data
 static queue_t events;
 static uint last_event_time = 0;
 
