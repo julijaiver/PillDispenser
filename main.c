@@ -85,6 +85,7 @@ static char response[256];
 //ISR used data
 static queue_t events;
 static uint last_event_time = 0;
+static size_t message_len;
 
 //function for interrupts and events
 static void gpio_handler(uint gpio, uint32_t event) {
@@ -173,7 +174,7 @@ int main() {
 
     // Initial Boot message upon start
     //write_log_message(curr_state, "Boot");
-    print_eeprom_logs();
+    print_eeprom_logs(&message_len);
 
     eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
     state = check_power_cut();
@@ -189,13 +190,13 @@ int main() {
                 set_boot(SW1_PRESSED);
                 printf("SW1_PRESSED\n");
                 if(!calibrated) {
-                    write_log_message(curr_state, "Calibrating");
+                    write_log_message(curr_state, "Calibrating", &message_len);
                     perform_calib();
                     remove_events();
                     if (joined_lora_network) {
                         send_message_to_lora(response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
                     }
-                    write_log_message(curr_state, "Device calibrated");
+                    write_log_message(curr_state, "Device calibrated", &message_len);
                     printf("Device calibrated. Place the pills to the device.\n");
                     calibrated = true;
                 }
@@ -228,7 +229,7 @@ int main() {
                     if (detect_pill()) {
                         sprintf(message, "Pill detected for day %d", day + 1);
                         sprintf(at_message, "AT+MSG=\"Pill detected for day %d.\"\n", day + 1);
-                        write_log_message(curr_state, message);
+                        write_log_message(curr_state, message, &message_len);
                         if (joined_lora_network) {
                             send_message_to_lora(response, at_message, MSG_TIMEOUT);
                         }
@@ -244,7 +245,7 @@ int main() {
                         if (joined_lora_network) {
                             send_message_to_lora(response, at_message, MSG_TIMEOUT);
                         }
-                        write_log_message(curr_state, message);
+                        write_log_message(curr_state, message, &message_len);
                         printf("%s\n", message);
                     }
                     // Saving last day dispensed
@@ -253,7 +254,7 @@ int main() {
                     sleep_ms(TIME_SLEEP);
                     day++;
                 }
-                print_eeprom_logs();
+                print_eeprom_logs(&message_len);
                 if (joined_lora_network) {
                     send_message_to_lora(response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
                 }
@@ -529,7 +530,7 @@ int check_power_cut(){
         printf("Reset or power cut off detected during running\n");
 
             if(boot_status == SW1_PRESSED) {
-            write_log_message(curr_state, "Reset or power cut off detected during CALIBRATION");
+            write_log_message(curr_state, "Reset or power cut off detected during CALIBRATION", &message_len);
             if(read_steps_per_revolution_from_eeprom()!= 0) {
                 printf("Calibration complete\n");
                 return LED_ON;
@@ -538,14 +539,14 @@ int check_power_cut(){
         }
 
         if(boot_status == LED_ON) {
-            write_log_message(curr_state, "Reset or power cut off detected during WAITING");
+            write_log_message(curr_state, "Reset or power cut off detected during WAITING", &message_len);
             steps_per_revolution = read_steps_per_revolution_from_eeprom();
             calibrated = true;
             return LED_ON;
         }
 
         if(boot_status == SW2_PRESSED) {
-            write_log_message(curr_state, "Reset or power cut off detected during PILL DISPENSING");
+            write_log_message(curr_state, "Reset or power cut off detected during PILL DISPENSING", &message_len);
             // Print last saved step
             steps_per_revolution = read_steps_per_revolution_from_eeprom();
             if (steps_per_revolution == 0xFFFF) {  // Assuming 0xFFFF means no step has been saved
