@@ -5,18 +5,18 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <sys/unistd.h>
-
 #include "pico/util/queue.h"
 #include "pico/time.h"
 #include "eeprom_log.h"
 #include "lora_connect.h"
+#include "shared_structs.h"
 
 void initialize_i2c(void);
 void initialize_controller(uint controller);
-void rotate_one_compartment();
-void move_one_step(void);
-bool check_for_edge(bool rising_edge);
-void perform_calib();
+void rotate_one_compartment(device *device);
+void move_one_step(device *device);
+void check_for_edge(bool rising_edge, device *device);
+void perform_calib(device *device);
 int check_pressed(int button);
 void initialize_button (int button);
 void initialize_led(int led);
@@ -25,11 +25,11 @@ void led_bright(int led);
 bool detect_pill();
 bool check_pill_dispensed(void);
 void led_off(int led);
-void recovery_calib(int current_compartment, int revolution);
+void recovery_calib(device *device);
 uint16_t read_steps_per_revolution_from_eeprom();
 void write_steps_per_revolution_to_eeprom(uint16_t revolution);
-int check_power_cut();
-void set_boot(int state);
+int check_power_cut(device *device, messaging *messaging_values);
+void set_boot(int state, device *device);
 void remove_events();
 
 #define UART_BAUDRATE 9600
@@ -59,7 +59,6 @@ void remove_events();
 #define MAX_QUEUE 100
 #define FALL_TIME 100 //calculated what is the maximum time needed in theory for a pill to drop. t= sqrt((2*0.035)/9.8) = 0.085 s.
 #define EQUIP_INACCURACY_REVERSE 207
-#define LOG_MESSAGE_SIZE 61
 #define ADDRESS_FOR_DAY 0x0802
 #define ADDRESS_FOR_STEP 0x0803
 #define ADDRESS_BOOT_STATUS 0X0806
@@ -76,14 +75,6 @@ typedef enum {
 
 static queue_t events;
 static uint last_event_time = 0;
-static uint8_t boot_status = UN_BOOT;
-static uint8_t last_day_dispensed = 0;
-static int steps_per_revolution = 0;
-static bool reverse = false;
-static bool calibrated = false;
-// Array for sending states to eeprom
-static uint8_t curr_state[LOG_MESSAGE_SIZE];
-static char response[256];
 
 //function for interrupts and events
 static void gpio_handler(uint gpio, uint32_t event) {
@@ -101,13 +92,9 @@ static void gpio_handler(uint gpio, uint32_t event) {
             queue_try_add(&events, &sw2_pressed);
         }
     }
-    if (elapsed_time > 20000) {
-        //debounce for pill dropping
-        last_event_time = current_time;
-        if (gpio == PIEZO_SENSOR) {
-            Event pill_detected = PILL_DISPENSED;
-            queue_try_add(&events, &pill_detected);
-        }
+    if (gpio == PIEZO_SENSOR) {
+        Event pill_detected = PILL_DISPENSED;
+        queue_try_add(&events, &pill_detected);
     }
 }
 
@@ -152,13 +139,17 @@ int main() {
     // Initialize chosen serial port
     stdio_init_all();
 
+    // Initialize structures
+    device device = {.boot_status = UN_BOOT, .last_day_dispensed = 0, .steps_per_revolution = 0, .reverse = false, .calibrated = false };
+    messaging messaging_values = { .curr_state = {0}, .response = {0}};
+
     //Initialize lora and connect
     int max_retries = 3;
     uint32_t timeout = 500000;
 
     bool joined_lora_network = setup_lora(max_retries, timeout);
     if (joined_lora_network) {
-        send_message_to_lora(response, "AT+MSG=\"Boot\"\n", MSG_TIMEOUT);
+        send_message_to_lora(messaging_values.response, "AT+MSG=\"Boot\"\n", MSG_TIMEOUT);
     }
 
     //Initialize queue
@@ -172,35 +163,33 @@ int main() {
 
     Event current_event = INITIAL_STATE;
     uint state = 0;
-    calibrated = false;
+    device.calibrated = false;
 
-    // Initial Boot message upon start
-    //write_log_message(curr_state, "Boot");
-    print_eeprom_logs();
+    print_eeprom_logs(&messaging_values.message_len);
 
-    eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
-    state = check_power_cut();
+    eeprom_read(ADDRESS_BOOT_STATUS, &device.boot_status, 1);
+    state = check_power_cut(&device, &messaging_values);
 
     //Main menu
     while(true) {
         switch (state) {
             case INITIAL_STATE:
-                set_boot(INITIAL_STATE);
+                set_boot(INITIAL_STATE, &device);
                 blink_led(LED, BLINK_WAIT);
                 break;
             case SW1_PRESSED:
-                set_boot(SW1_PRESSED);
+                set_boot(SW1_PRESSED, &device);
                 printf("SW1_PRESSED\n");
-                if(!calibrated) {
-                    write_log_message(curr_state, "Calibrating");
-                    perform_calib();
+                if(!device.calibrated) {
+                    write_log_message("Calibrating", &messaging_values);
+                    perform_calib(&device);
                     remove_events();
                     if (joined_lora_network) {
-                        send_message_to_lora(response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
+                        send_message_to_lora(messaging_values.response, "AT+MSG=\"Device calibrated.\"\n", MSG_TIMEOUT);
                     }
-                    write_log_message(curr_state, "Device calibrated");
+                    write_log_message("Device calibrated", &messaging_values);
                     printf("Device calibrated. Place the pills to the device.\n");
-                    calibrated = true;
+                    device.calibrated = true;
                 }
                 else {
                     printf("Calibration done already for this round.\n");
@@ -209,32 +198,32 @@ int main() {
             break;
 
             case LED_ON:
-                set_boot(LED_ON);
+                set_boot(LED_ON, &device);
                 led_bright(LED);
             break;
 
             case SW2_PRESSED:
-                set_boot(SW2_PRESSED);
+                set_boot(SW2_PRESSED, &device);
                 //make led off to see the blinks properly
                 led_off(LED);
                 printf("SW2_PRESSED\n");
                 int day = 0;
-                if(last_day_dispensed != 0) {
-                    day = last_day_dispensed;
+                if(device.last_day_dispensed != 0) {
+                    day = device.last_day_dispensed;
                 }
                 while (day < DAYS) {
                     char message[LOG_MESSAGE_SIZE];
                     char at_message[LOG_MESSAGE_SIZE];
                     //check_pill_dispensed();
                     remove_events();
-                    rotate_one_compartment();
+                    rotate_one_compartment(&device);
                     if (detect_pill()) {
                         sprintf(message, "Pill detected for day %d", day + 1);
                         sprintf(at_message, "AT+MSG=\"Pill detected for day %d.\"\n", day + 1);
+                        write_log_message(message, &messaging_values);
                         if (joined_lora_network) {
-                            send_message_to_lora(response, at_message, MSG_TIMEOUT);
+                            send_message_to_lora(messaging_values.response, at_message, MSG_TIMEOUT);
                         }
-                        write_log_message(curr_state, message);
                         printf("%s\n", message);
 
                     } else {
@@ -245,25 +234,25 @@ int main() {
                         sprintf(message, "Pill NOT detected for day %d", day + 1);
                         sprintf(at_message, "AT+MSG=\"Pill not detected for day %d.\"\n", day + 1);
                         if (joined_lora_network) {
-                            send_message_to_lora(response, at_message, MSG_TIMEOUT);
+                            send_message_to_lora(messaging_values.response, at_message, MSG_TIMEOUT);
                         }
-                        write_log_message(curr_state, message);
+                        write_log_message(message, &messaging_values);
                         printf("%s\n", message);
                     }
                     // Saving last day dispensed
-                    last_day_dispensed = day + 1;
-                    eeprom_write(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
+                    device.last_day_dispensed = day + 1;
+                    eeprom_write(ADDRESS_FOR_DAY, &device.last_day_dispensed, 1);
                     sleep_ms(TIME_SLEEP);
                     day++;
                 }
-                print_eeprom_logs();
+                print_eeprom_logs(&messaging_values.message_len);
                 if (joined_lora_network) {
-                    send_message_to_lora(response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
+                    send_message_to_lora(messaging_values.response, "AT+MSG=\"Dispenser empty.\"\n", MSG_TIMEOUT);
                 }
-                calibrated = false;
-                last_day_dispensed = 0;
-                set_boot(UN_BOOT);
-                steps_per_revolution = 0;
+                device.calibrated = false;
+                device.last_day_dispensed = 0;
+                set_boot(UN_BOOT, &device);
+                device.steps_per_revolution = 0;
                 delete_eeprom_log();
                 state = INITIAL_STATE;
                 break;
@@ -307,7 +296,7 @@ void initialize_controller(uint controller) {
 }
 
 //function that controls the rotation of the motor and return current step
-void rotate_one_compartment() {
+void rotate_one_compartment(device *device) {
     //record the current days(compartment)
     static int current_day = 0;
     current_day = (current_day % DAYS)+1;
@@ -316,19 +305,19 @@ void rotate_one_compartment() {
     //static int current_position = 0;
 
     //driving the motor with half stepping and run motor number times 1/8 of a revolution
-    int number = steps_per_revolution / TOTAL_STEP;
+    uint number = device->steps_per_revolution / TOTAL_STEP;
     for (int i = 0; i< number; ++i) {
         //uint16_t current_position = i;
-        move_one_step();
+        move_one_step(device);
     }
 }
 
 //function that moves one step
-void move_one_step(void) {
+void move_one_step(device *device) {
     static int current_step = 0;
 
     //Update the current step, offers both clockwise and anticlockwise rotation options
-    if(reverse) {
+    if(device->reverse) {
         //Anticlockwise rotation.
         current_step = (current_step - 1 + TOTAL_STEP) % TOTAL_STEP;
     }
@@ -346,21 +335,21 @@ void move_one_step(void) {
     sleep_ms(CHANGE_SPEED);
 }
 
-bool check_for_edge(bool rising_edge) {
+void check_for_edge(bool rising_edge, device *device) {
     bool start = false;
     int previous_value = 0;
     int current_value = 0;
 
     //set the motor to rotate reversely
     if(rising_edge) {
-        reverse = true;
+        device->reverse = true;
         previous_value = 1;
         current_value = 1;
     }
 
     while (!start) {
         //move the motor step by step and record the current value and previous value
-        move_one_step();
+        move_one_step(device);
         previous_value = current_value;
         current_value = gpio_get(OPTO_FORK);
 
@@ -372,21 +361,20 @@ bool check_for_edge(bool rising_edge) {
             start = true;
         }
     }
-    return start;
 }
 
 //function that calibrate the motor
-void perform_calib() {
+void perform_calib(device *device) {
     //initialize variable
     int step_count = 0;
 
     //clears step per revolution for another round of calibration
-    steps_per_revolution = 0;
-    write_steps_per_revolution_to_eeprom(steps_per_revolution);
+    device->steps_per_revolution = 0;
+    write_steps_per_revolution_to_eeprom(device->steps_per_revolution);
 
     //clear the step_count for a new calibration
     step_count = 0;
-    check_for_edge(false);
+    check_for_edge(false, device);
 
     //since falling edge is detected, the previous value is set as 1 and the current value as 0
     int previous_value = 1;
@@ -396,7 +384,7 @@ void perform_calib() {
     for(int i = 0; i< TRIAL; ++i) {
         //detect a full falling edge and increment the steps based on that
         do {
-            move_one_step();
+            move_one_step(device);
             previous_value = current_value;
             current_value = gpio_get(OPTO_FORK);
             ++step_count;
@@ -405,12 +393,12 @@ void perform_calib() {
 
     //Take the equipment inaccuracy into account and move the compartment exactly in the middle
     for(int i= 0; i < EQUIP_INACCURACY; ++i) {
-        move_one_step();
+        move_one_step(device);
     }
 
     //calculates the steps per revolution
-    steps_per_revolution = step_count/TRIAL;
-    write_steps_per_revolution_to_eeprom(steps_per_revolution);
+    device->steps_per_revolution = step_count/TRIAL;
+    write_steps_per_revolution_to_eeprom(device->steps_per_revolution);
 }
 
 //function that checks if button is pressed. Return 1 if pressed.
@@ -486,24 +474,23 @@ void led_off(int led) {
 }
 
 //function that recovers the motor to the correct position
-void recovery_calib(int current_compartment, int revolution) {
+void recovery_calib(device *device) {
     //reverse = true;
 
-    check_for_edge(true);
-
-    reverse = false;
+    check_for_edge(true, device);
+    device->reverse = false;
 
     //Take the equipment inaccuracy into account and move the compartment exactly in the middle
     for(int i= 0; i < EQUIP_INACCURACY_REVERSE; ++i) {
-        move_one_step();
+        move_one_step(device);
     }
 
     //wait for 2s
     sleep_ms(2000);
 
     //++current_compartment;
-    for(int i = 0; i < (revolution/(DAYS+1)) * current_compartment; ++i) {
-        move_one_step();
+    for(int i = 0; i < (device->steps_per_revolution/(DAYS+1)) * device->last_day_dispensed; ++i) {
+        move_one_step(device);
     }
 }
 
@@ -526,14 +513,14 @@ void write_steps_per_revolution_to_eeprom(uint16_t revolution) {
 }
 
 //function that checks reset or power cut off during running and react differently based on different state
-int check_power_cut(){
-    eeprom_read(ADDRESS_BOOT_STATUS, &boot_status, 1);
-    if (boot_status != UN_BOOT) {
-        send_message_to_lora(response, "AT+MSG=\"Reset of power cut off detected during turning.\"\n", MSG_TIMEOUT);
+int check_power_cut(device *device, messaging *messaging_values){
+    eeprom_read(ADDRESS_BOOT_STATUS, &device->boot_status, 1);
+    if (device->boot_status != UN_BOOT) {
+        send_message_to_lora(messaging_values->response, "AT+MSG=\"Reset of power cut off detected during turning.\"\n", MSG_TIMEOUT);
         printf("Reset or power cut off detected during running\n");
 
-            if(boot_status == SW1_PRESSED) {
-            write_log_message(curr_state, "Reset or power cut off detected during CALIBRATION");
+            if(device->boot_status == SW1_PRESSED) {
+            write_log_message("Reset or power cut off detected during CALIBRATION", messaging_values);
             if(read_steps_per_revolution_from_eeprom()!= 0) {
                 printf("Calibration complete\n");
                 return LED_ON;
@@ -541,25 +528,25 @@ int check_power_cut(){
             return INITIAL_STATE;
         }
 
-        if(boot_status == LED_ON) {
-            write_log_message(curr_state, "Reset or power cut off detected during WAITING");
-            steps_per_revolution = read_steps_per_revolution_from_eeprom();
-            calibrated = true;
+        if(device->boot_status == LED_ON) {
+            write_log_message("Reset or power cut off detected during WAITING", messaging_values);
+            device->steps_per_revolution = read_steps_per_revolution_from_eeprom();
+            device->calibrated = true;
             return LED_ON;
         }
 
-        if(boot_status == SW2_PRESSED) {
-            write_log_message(curr_state, "Reset or power cut off detected during PILL DISPENSING");
+        if(device->boot_status == SW2_PRESSED) {
+            write_log_message("Reset or power cut off detected during PILL DISPENSING", messaging_values);
             // Print last saved step
-            steps_per_revolution = read_steps_per_revolution_from_eeprom();
-            if (steps_per_revolution == 0xFFFF) {  // Assuming 0xFFFF means no step has been saved
+            device->steps_per_revolution = read_steps_per_revolution_from_eeprom();
+            if (device->steps_per_revolution == 0xFFFF) {  // Assuming 0xFFFF means no step has been saved
                 printf("No previous step saved.\n");
             }else{
-                printf("Total steps per revolution for last round: %u\n", steps_per_revolution);
+                printf("Total steps per revolution for last round: %u\n", device->steps_per_revolution);
             }
 
-            eeprom_read(ADDRESS_FOR_DAY, &last_day_dispensed, 1);
-            recovery_calib(last_day_dispensed, steps_per_revolution);
+            eeprom_read(ADDRESS_FOR_DAY, &device->last_day_dispensed, 1);
+            recovery_calib(device);
             sleep_ms(TIME_SLEEP);
             return SW2_PRESSED;
         }
@@ -567,9 +554,9 @@ int check_power_cut(){
     return INITIAL_STATE;
 }
 
-void set_boot(int state) {
-        boot_status = state;
-        eeprom_write(ADDRESS_BOOT_STATUS, &boot_status, 1);
+void set_boot(int state, device *device) {
+        device->boot_status = state;
+        eeprom_write(ADDRESS_BOOT_STATUS, &device->boot_status, 1);
 }
 
 void remove_events() {

@@ -2,6 +2,7 @@
 #define LORA_CONNECT_H
 
 #define INPUT_SIZE 80
+#define SLEEP_TIME 300
 #define MSG_TIMEOUT 5000000
 
 
@@ -9,6 +10,7 @@
 #include "hardware/uart.h"
 #include "stdio.h"
 #include <ctype.h>
+#include "shared_structs.h"
 
 void send_to_uart(uart_inst_t *uart, char *string);
 bool send_and_execute_lora_command(char *response, const char *command, const char *error_message, uint32_t timeout);
