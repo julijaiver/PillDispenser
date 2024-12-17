@@ -2,6 +2,7 @@
 
 // Implementations of functions for eeprom log messages
 
+//CRC msb and lsb calculation
 uint16_t crc16(const uint8_t *buffer_p, size_t buffer_len) {
     uint8_t x;
     uint16_t crc = 0xFFFF;
@@ -21,6 +22,7 @@ bool validate_crc(uint8_t *data_buffer, size_t buffer_len) {
     return true;
 }
 
+// basic function for simple eeprom write functionality
 bool eeprom_write(uint16_t address, uint8_t *data, size_t data_len) {
     uint8_t addr_buf[2] = {((address >> 8) & 0xff), (address & 0xff)};
     uint8_t data_buf[data_len + 2];
@@ -32,7 +34,7 @@ bool eeprom_write(uint16_t address, uint8_t *data, size_t data_len) {
     sleep_ms(5);
     return result == data_len + 2;
 }
-
+// Writing a log message to eeprom at the next available address
 bool write_log_to_eeprom(const uint8_t *message, size_t message_len) {
     uint16_t log_addr;
     if (!log_empty(&log_addr)) {
@@ -63,7 +65,7 @@ bool write_log_to_eeprom(const uint8_t *message, size_t message_len) {
     eeprom_write(MAX_LOG_ADDRESS + BUFFER_SIZE, (uint8_t *)&log_addr, sizeof(log_addr));
     return true;
 }
-
+//Higher level function to write a string message
 void write_log_message(const char *message_content, messaging *messaging_values) {
     messaging_values->message_len = strlen(message_content);
     memcpy(messaging_values->curr_state, message_content, messaging_values->message_len);
@@ -89,7 +91,7 @@ uint16_t read_log_addr_from_eeprom(void) {
     }
     return log_addr;
 }
-
+// Printing logs after data validation
 void print_eeprom_logs(const size_t *message_len) {
     for (uint16_t i = 0; i <= MAX_LOG_ADDRESS; i+=BUFFER_SIZE) {
         uint8_t read_data[BUFFER_SIZE];
@@ -109,7 +111,7 @@ void print_eeprom_logs(const size_t *message_len) {
         }
     }
 }
-
+//Check if the log is empty
 bool log_empty(uint16_t *log_addr) {
     for (uint16_t i = 0; i <= MAX_LOG_ADDRESS; i+=BUFFER_SIZE) {
         uint8_t read_data[BUFFER_SIZE];
@@ -122,7 +124,7 @@ bool log_empty(uint16_t *log_addr) {
     }
     return false;
 }
-
+// Delete the whole log
 void delete_eeprom_log(void) {
     for (uint16_t i = 0; i <= MAX_LOG_ADDRESS; i+=BUFFER_SIZE) {
         eeprom_write(i, 0, 1);

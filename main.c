@@ -63,7 +63,7 @@ void remove_events();
 #define ADDRESS_FOR_STEP 0x0803
 #define ADDRESS_BOOT_STATUS 0X0806
 #define UN_BOOT 0
-#define TIME_SLEEP 30000
+#define TIME_SLEEP 30000 // Pills dispensed every 30 seconds
 
 typedef enum {
     INITIAL_STATE = 0,
@@ -164,8 +164,6 @@ int main() {
     Event current_event = INITIAL_STATE;
     uint state = 0;
     device.calibrated = false;
-
-    print_eeprom_logs(&messaging_values.message_len);
 
     eeprom_read(ADDRESS_BOOT_STATUS, &device.boot_status, 1);
     state = check_power_cut(&device, &messaging_values);
@@ -520,7 +518,7 @@ int check_power_cut(device *device, messaging *messaging_values){
         printf("Reset or power cut off detected during running\n");
 
             if(device->boot_status == SW1_PRESSED) {
-            write_log_message("Reset or power cut off detected during CALIBRATION", messaging_values);
+            write_log_message("Re-Boot during CALIBRATION", messaging_values);
             if(read_steps_per_revolution_from_eeprom()!= 0) {
                 printf("Calibration complete\n");
                 return LED_ON;
@@ -529,14 +527,14 @@ int check_power_cut(device *device, messaging *messaging_values){
         }
 
         if(device->boot_status == LED_ON) {
-            write_log_message("Reset or power cut off detected during WAITING", messaging_values);
+            write_log_message("Re-Boot during WAITING", messaging_values);
             device->steps_per_revolution = read_steps_per_revolution_from_eeprom();
             device->calibrated = true;
             return LED_ON;
         }
 
         if(device->boot_status == SW2_PRESSED) {
-            write_log_message("Reset or power cut off detected during PILL DISPENSING", messaging_values);
+            write_log_message("Re-Boot during PILL DISPENSING", messaging_values);
             // Print last saved step
             device->steps_per_revolution = read_steps_per_revolution_from_eeprom();
             if (device->steps_per_revolution == 0xFFFF) {  // Assuming 0xFFFF means no step has been saved
