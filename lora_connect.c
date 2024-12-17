@@ -30,6 +30,7 @@ bool send_message_to_lora(char *response, const char *command, uint32_t timeout)
     send_to_uart(uart1, command);
     uint64_t start_time = time_us_64(); // Record start time
     uint64_t current_time;
+    sleep_ms(SLEEP_TIME);
 
     // Attempt to read response within timeout period
     while (true) {

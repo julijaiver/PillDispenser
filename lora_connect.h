@@ -2,6 +2,7 @@
 #define LORA_CONNECT_H
 
 #define INPUT_SIZE 80
+#define SLEEP_TIME 300
 #define MSG_TIMEOUT 5000000
 
 
